@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-03T00:00:00Z",
+  "title": "Design System: Icarus Automation",
+  "extensions": {
+    "colorMeta": {
+      "blueprint": {
+        "role": "primary",
+        "displayName": "Cerulean Blueprint",
+        "canonical": "oklch(67% 0.22 248)",
+        "tonalRamp": ["#0d1f33", "#093368", "#0054a3", "#0070d6", "#009dff", "#40b8ff", "#96d8ff", "#d4f0ff"]
+      },
+      "blueprint-deep": {
+        "role": "primary",
+        "displayName": "Blueprint Deep",
+        "canonical": "oklch(55% 0.18 250)",
+        "tonalRamp": ["#091929", "#10305a", "#1a4d8a", "#0a60a8", "#0074c2", "#2a90d8", "#7ab5e8", "#c4dff5"]
+      },
+      "blueprint-tint": {
+        "role": "primary",
+        "displayName": "Blueprint Tint",
+        "canonical": "oklch(95% 0.04 248)",
+        "tonalRamp": ["#0d2842", "#1a4470", "#2a60a0", "#3c7ec0", "#5a9fd8", "#80bff0", "#b5d8f8", "#e5f5ff"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(14% 0.06 246)",
+        "tonalRamp": ["#0a1b2e", "#142a48", "#1e3a62", "#2c4f7a", "#3f6696", "#5a7eac", "#93a9c6", "#c4d0de"]
+      },
+      "ink-mid": {
+        "role": "neutral",
+        "displayName": "Ink Mid",
+        "canonical": "oklch(39% 0.04 243)",
+        "tonalRamp": ["#1a2533", "#243040", "#2e3d50", "#3a4c62", "#47586c", "#5e7088", "#8498b0", "#b8c5d4"]
+      },
+      "gilt": {
+        "role": "secondary",
+        "displayName": "Gilt",
+        "canonical": "oklch(70% 0.14 84)",
+        "tonalRamp": ["#2b1e00", "#4a3400", "#6a4d00", "#8f6800", "#af8415", "#c9a227", "#d9bc65", "#efe5bb"]
+      },
+      "gilt-tint": {
+        "role": "secondary",
+        "displayName": "Gilt Tint",
+        "canonical": "oklch(95% 0.04 90)",
+        "tonalRamp": ["#2b1e00", "#4a3400", "#6a4d0a", "#8a6620", "#aa8440", "#caa46a", "#dfc8a0", "#f6efd8"]
+      },
+      "folio": {
+        "role": "neutral",
+        "displayName": "Folio",
+        "canonical": "oklch(98% 0.002 100)",
+        "tonalRamp": ["#3c3c3a", "#555553", "#6f6f6d", "#898986", "#a3a3a0", "#bcbcba", "#d8d8d6", "#fafaf8"]
+      },
+      "folio-raised": {
+        "role": "neutral",
+        "displayName": "Folio Raised",
+        "canonical": "oklch(96% 0.006 240)",
+        "tonalRamp": ["#353739", "#4e5055", "#676a70", "#80838a", "#999ca3", "#b3b6bc", "#cccfd4", "#f1f3f6"]
+      },
+      "ruling": {
+        "role": "neutral",
+        "displayName": "Ruling",
+        "canonical": "oklch(92% 0.008 240)",
+        "tonalRamp": ["#34363a", "#4d5054", "#666a6e", "#7f838a", "#989ca3", "#b2b7bc", "#ccd0d6", "#e3e7ec"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headlines (h1) only. The authority voice. Never used below section-heading scale."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings (h2). Classical weight for major section breaks."
+      },
+      "body-lg": {
+        "displayName": "Body Large",
+        "purpose": "Hero supporting copy and lead paragraphs. First paragraph in any marketing section."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Standard prose, card descriptions, form labels, FAQ answers."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Hero eyebrow kicker (gilt), status chips, nav items. Uppercase at this scale only."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Code references and pricing data when monospaced rhythm is needed."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-reveal",
+        "value": "cubic-bezier(0.21, 0.47, 0.32, 0.98)",
+        "purpose": "Standard ease for entrance reveals — ease-out-expo. Duration 700ms. Used by the Reveal component on all in-view entrances."
+      },
+      {
+        "name": "ease-ui",
+        "value": "ease",
+        "purpose": "State transitions on interactive elements (button hover, nav background). Duration 150–200ms."
+      },
+      {
+        "name": "rays-spin",
+        "value": "rays-spin 90s linear infinite",
+        "purpose": "Full rotation of the hero sun-rays SVG. Represents Icarus aspiration. One use per page; paused under prefers-reduced-motion."
+      },
+      {
+        "name": "marquee",
+        "value": "marquee 32s linear infinite",
+        "purpose": "Horizontal scroll of the trusted-by logo strip. Continuous loop via translateX(-50%)."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary conversion action. The page’s single most important CTA — Book a Free Demo.",
+      "html": "<button class=\"ds-btn-primary\">Book a Free Demo <svg class=\"ds-btn-arrow\" xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 24px; background-color: #009dff; color: #ffffff; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; border: none; border-radius: 2px; cursor: pointer; transition: background-color 150ms ease, transform 100ms ease; outline-offset: 2px; } .ds-btn-primary:hover { background-color: #0074c2; } .ds-btn-primary:focus-visible { outline: 2px solid #009dff; } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-arrow { width: 16px; height: 16px; flex-shrink: 0; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Secondary action alongside a Primary CTA. Ruling border, white background.",
+      "html": "<button class=\"ds-btn-secondary\">Explore Keep Inv</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 24px; background-color: #ffffff; color: #0a1b2e; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; border: 1px solid #e3e7ec; border-radius: 2px; cursor: pointer; transition: border-color 150ms ease, transform 100ms ease; outline-offset: 2px; } .ds-btn-secondary:hover { border-color: rgba(10, 27, 46, 0.4); } .ds-btn-secondary:focus-visible { outline: 2px solid #009dff; } .ds-btn-secondary:active { transform: translateY(1px); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Tertiary action. Navigation-weight links and inline directional actions.",
+      "html": "<button class=\"ds-btn-ghost\">View all solutions →</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 6px; padding: 8px 0; background: none; border: none; border-radius: 2px; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; color: #47586c; cursor: pointer; transition: color 150ms ease; outline-offset: 2px; } .ds-btn-ghost:hover { color: #0074c2; } .ds-btn-ghost:focus-visible { outline: 2px solid #009dff; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Fixed header bar. Typographic brand mark, ghost nav links, small Primary CTA.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-nav-brand\" href=\"#\">Icarus <span class=\"ds-nav-accent\">Automation</span></a><nav class=\"ds-nav-links\" aria-label=\"Main\"><a class=\"ds-nav-link\" href=\"#\">Home</a><a class=\"ds-nav-link ds-nav-active\" href=\"#\">Solutions</a><a class=\"ds-nav-link\" href=\"#\">Contact</a></nav><button class=\"ds-nav-cta\">Book a Free Demo</button></header>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; height: 64px; padding: 0 24px; background-color: #fafaf8; border-bottom: 1px solid #e3e7ec; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-nav-brand { font-family: Marcellus, Georgia, serif; font-size: 1.125rem; color: #0a1b2e; text-decoration: none; } .ds-nav-accent { color: #0074c2; } .ds-nav-links { display: flex; align-items: center; gap: 4px; } .ds-nav-link { padding: 8px 14px; border-radius: 2px; font-size: 0.875rem; color: #47586c; text-decoration: none; transition: color 150ms ease; } .ds-nav-link:hover { color: #0a1b2e; } .ds-nav-active { font-weight: 600; color: #0074c2; } .ds-nav-cta { display: inline-flex; align-items: center; height: 36px; padding: 0 16px; background-color: #009dff; color: #ffffff; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; border: none; border-radius: 2px; cursor: pointer; transition: background-color 150ms ease; } .ds-nav-cta:hover { background-color: #0074c2; } .ds-nav-cta:focus-visible { outline: 2px solid #009dff; outline-offset: 2px; }"
+    },
+    {
+      "name": "Service Card",
+      "kind": "card",
+      "refersTo": null,
+      "description": "Feature and service cards. Blueprint-tint icon container, Marcellus title, Inter body.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2L2 7l10 5 10-5-10-5z\"/><path d=\"m2 17 10 5 10-5\"/><path d=\"m2 12 10 5 10-5\"/></svg></div><h3 class=\"ds-card-title\">Workflow Automation</h3><p class=\"ds-card-body\">n8n-powered automations that run your repeatable work: marketing posts with AI content, lead routing, and reports.</p></div>",
+      "css": ".ds-card { padding: 24px; background-color: #f1f3f6; border: 1px solid #e3e7ec; border-radius: 2px; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-card-icon { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: #e5f5ff; border-radius: 2px; color: #009dff; margin-bottom: 16px; flex-shrink: 0; } .ds-card-title { font-family: Marcellus, Georgia, serif; font-size: 1.25rem; font-weight: 400; color: #0a1b2e; margin: 0 0 8px 0; line-height: 1.25; } .ds-card-body { font-size: 0.9375rem; color: #47586c; line-height: 1.6; margin: 0; }"
+    },
+    {
+      "name": "Meander Band",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Greek key (meander) horizontal divider. Used at section breaks and the footer accent.",
+      "html": "<div class=\"ds-meander\" aria-hidden=\"true\"></div>",
+      "css": ".ds-meander { height: 10px; width: 100%; color: #0a1b2e; background-color: currentColor; -webkit-mask-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10' viewBox='0 0 40 10'%3E%3Cpath d='M0 0h40v2H12v6h6V4h2v6H0V8h10V2H4v4H2V2H0z' fill='%23000'/%3E%3C/svg%3E\"); mask-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10' viewBox='0 0 40 10'%3E%3Cpath d='M0 0h40v2H12v6h6V4h2v6H0V8h10V2H4v4H2V2H0z' fill='%23000'/%3E%3C/svg%3E\"); -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x; -webkit-mask-size: 40px 10px; mask-size: 40px 10px; }"
+    },
+    {
+      "name": "Section Heading",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Standard section heading block: optional gilt eyebrow, Marcellus headline, Inter subtitle.",
+      "html": "<div class=\"ds-sec-head\"><p class=\"ds-sec-eyebrow\">Our Services</p><h2 class=\"ds-sec-title\">What we build for you</h2><p class=\"ds-sec-sub\">Enterprise-grade automation, custom systems, and IoT for Philippine businesses — without the enterprise price.</p></div>",
+      "css": ".ds-sec-head { max-width: 640px; text-align: center; margin: 0 auto; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-sec-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: #c9a227; margin: 0 0 16px 0; } .ds-sec-title { font-family: Marcellus, Georgia, serif; font-size: clamp(1.875rem, 4vw, 2.75rem); font-weight: 400; color: #0a1b2e; line-height: 1.15; margin: 0 0 16px 0; text-wrap: balance; } .ds-sec-sub { font-size: 1rem; color: #47586c; line-height: 1.6; margin: 0 auto; max-width: 55ch; }"
+    },
+    {
+      "name": "Label Chip",
+      "kind": "chip",
+      "refersTo": null,
+      "description": "Compact category or status label. Blueprint-tint background with blueprint-deep text.",
+      "html": "<span class=\"ds-chip\">IoT &amp; Embedded</span>",
+      "css": ".ds-chip { display: inline-block; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; color: #0074c2; background-color: #e5f5ff; border-radius: 2px; padding: 4px 10px; line-height: 1.5; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Architect of the Polis",
+    "overview": "Icarus Automation is not a startup with ambitions — it is a builder of civic infrastructure for business. The design language draws from the ordered precision of Greek architectural planning: the ruling line on the blueprint, the measured stone, the gilded notation marking what deserves to be marked. Every visual decision should feel like the working documents of a master builder — functional, exact, carrying the weight of expertise without demanding admiration for itself.\n\nThis is a brand-register surface with one conversion goal: book the consultation. Every section exists to build sufficient trust, demonstrate sufficient capability, and make the price-to-value gap obvious enough that the decision to book becomes easy.\n\nThe design explicitly rejects three failure modes: the cheap local agency look (bright fills, drop shadows, stock photos, loud fonts); the corporate enterprise look (heavy navy, formal language, intimidating uniformity); and the trendy AI aesthetic (purple gradients, glassmorphism, pastel gradient heroes).",
+    "keyCharacteristics": [
+      "Blueprint precision: 2px corners, structural ruling borders, purposeful spacing",
+      "Gilt discipline: the gold accent marks quality the way a seal marks a document",
+      "Classical authority: Marcellus carries the register that Inter alone cannot",
+      "Flat by principle: depth is tonal and structural, never cosmetic",
+      "Greek motifs as grammar: meander, laurel, and sun-rays in designated roles only"
+    ],
+    "rules": [
+      { "name": "The Blueprint Monopoly Rule", "body": "Cerulean blue is the sole color of interactive intent. Links, buttons, active states, and focus indicators use blueprint or blueprint-deep — nothing else.", "section": "colors" },
+      { "name": "The Gilt Discipline Rule", "body": "Gold appears at most once per viewport. If two sections are simultaneously visible and both have a gilt element, one has too much. Gilt marks what is worth marking; ubiquity destroys the signal.", "section": "colors" },
+      { "name": "The Ruling Line Rule", "body": "Borders are structural, not decorative. Every ruling border must divide something that needs dividing.", "section": "colors" },
+      { "name": "The Marcellus Ceiling Rule", "body": "Marcellus is the display and headline voice — h1 and h2 only. Never on body copy, labels, buttons, or captions.", "section": "typography" },
+      { "name": "The Letter-Spacing Floor Rule", "body": "Display type uses letter-spacing no tighter than −0.04em. The current operating point is −0.01em. Do not go below −0.04em.", "section": "typography" },
+      { "name": "The Flat Ground Rule", "body": "When lifting a card off the page, use background: folio-raised + border: 1px solid ruling. No box-shadow.", "section": "elevation" },
+      { "name": "The No-Ghost-Card Rule", "body": "border: 1px solid ruling and box-shadow with blur ≥16px on the same element is always wrong. Choose one.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use background: folio-raised + border: 1px solid ruling as the elevation pair for all cards.",
+      "Do apply Marcellus exclusively to h1 and h2. Every other typographic element uses Inter.",
+      "Do deploy the meander border only at structural horizontal dividers and the footer.",
+      "Do apply gilt to at most one element per viewport — the most important qualifier on that screen.",
+      "Do use text-wrap: balance on every h1 and h2; text-wrap: pretty on body paragraphs of four or more lines.",
+      "Do confirm ≥4.5:1 contrast for all body text before shipping any new text + background combination.",
+      "Do include @media (prefers-reduced-motion: reduce) coverage for every animation added."
+    ],
+    "donts": [
+      "Don’t use the cheap local agency aesthetic: bright fills, drop shadows on everything, stock photos, loud fonts.",
+      "Don’t use the corporate enterprise aesthetic: full-navy body, formal grids, intimidating tone.",
+      "Don’t use the trendy AI aesthetic: purple gradients, glassmorphism, pastel gradient heroes.",
+      "Don’t add border-left or border-right greater than 1px as a colored stripe on cards or callouts.",
+      "Don’t pair border: 1px solid ruling with box-shadow blur ≥16px on the same element.",
+      "Don’t use border-radius greater than 8px on cards or interactive elements.",
+      "Don’t add a gilt eyebrow kicker above more than one section per page.",
+      "Don’t apply gilt to buttons, links, or any interactive affordance.",
+      "Don’t place a Greek motif without a structural justification.",
+      "Don’t use background-clip: text with a gradient.",
+      "Don’t invent a third accent color."
+    ]
+  }
+}
