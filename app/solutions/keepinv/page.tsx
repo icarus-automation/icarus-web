@@ -5,6 +5,7 @@ import { KeepInvVideo } from "@/components/keepinv/video";
 import { KeepInvFeatures } from "@/components/keepinv/features";
 import { KeepInvPricing } from "@/components/keepinv/pricing";
 import { KeepInvTestimonials } from "@/components/keepinv/testimonials";
+import { KeepInvGallery } from "@/components/keepinv/gallery";
 import { CtaBand } from "@/components/home/cta-band";
 
 // This page is the landing target for Facebook/YouTube ads — keep it
@@ -27,6 +28,7 @@ export default function KeepInvPage() {
       <KeepInvFeatures />
       <KeepInvPricing />
       <KeepInvTestimonials />
+      <KeepInvGallery />
       <CtaBand
         title="See Keep Inv on your own counter"
         subtitle="Book a free demo and we'll walk you through the POS, inventory, and RFID auditing with your own products."

@@ -4,7 +4,7 @@ import { ComingSoon } from "@/components/ui/coming-soon";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Insights on automation, systems, and IoT from Icarus Automation. Coming soon.",
+    "Insights on automation, systems, and IoT from Icarus.Automation. Coming soon.",
   alternates: { canonical: "/blog" },
   // Hidden from nav and sitemap until there is content; keep out of search too
   robots: { index: false, follow: false },

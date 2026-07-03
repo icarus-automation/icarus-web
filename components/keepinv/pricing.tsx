@@ -3,12 +3,13 @@ import { keepinvPricing } from "@/content/keepinv";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Stagger, StaggerItem } from "@/components/motion/reveal";
 import { cn } from "@/lib/utils";
 
 export function KeepInvPricing() {
   return (
-    <section id="pricing" className="bg-surface-2 py-20 sm:py-28">
+    <section id="pricing" className="bg-folio-raised py-20 sm:py-28">
       <Container className="max-w-7xl">
         <SectionHeading
           title="One payment. Yours for life."
@@ -19,21 +20,19 @@ export function KeepInvPricing() {
             <StaggerItem
               key={tier.name}
               className={cn(
-                "flex h-full flex-col rounded-sm border bg-white p-7",
-                tier.featured ? "border-primary" : "border-line",
+                "flex h-full flex-col rounded-sm border bg-white p-6",
+                tier.featured ? "border-blueprint-deep" : "border-ruling",
               )}
             >
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <h3 className="font-display text-lg text-ink">{tier.name}</h3>
-                  <p className="mt-0.5 text-xs font-medium tracking-wide text-ink-muted uppercase">
+                  <h3 className="text-lg font-semibold text-ink">{tier.name}</h3>
+                  <p className="mt-0.5 text-xs font-medium tracking-wide text-ink-mid uppercase">
                     {tier.subtitle}
                   </p>
                 </div>
                 {tier.featured && (
-                  <span className="rounded-sm bg-primary px-2.5 py-1 text-xs font-semibold whitespace-nowrap text-white">
-                    Most popular
-                  </span>
+                  <Badge className="whitespace-nowrap">Recommended</Badge>
                 )}
               </div>
               <p className="mt-5 flex items-baseline gap-2">
@@ -41,8 +40,8 @@ export function KeepInvPricing() {
                   {tier.price}
                 </span>
               </p>
-              <p className="text-sm text-ink-muted">{tier.period}</p>
-              <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+              <p className="text-sm text-ink-mid">{tier.period}</p>
+              <p className="mt-3 text-sm leading-relaxed text-ink-mid">
                 {tier.description}
               </p>
               <ul className="mt-5 space-y-2.5">
@@ -51,13 +50,13 @@ export function KeepInvPricing() {
                     key={feature}
                     className="flex items-start gap-2.5 text-sm text-ink"
                   >
-                    <Check className="mt-0.5 size-4 shrink-0 text-gold" />
+                    <Check className="mt-0.5 size-4 shrink-0 text-ink-mid" />
                     {feature}
                   </li>
                 ))}
               </ul>
               {tier.note && (
-                <p className="mt-4 text-xs text-ink-muted/80">{tier.note}</p>
+                <p className="mt-4 text-xs text-ink-mid">{tier.note}</p>
               )}
               <div className="mt-auto pt-7">
                 <Button

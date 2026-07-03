@@ -12,7 +12,7 @@ export function Laurel({
     <svg
       aria-hidden
       viewBox="0 0 24 40"
-      className={cn("text-gold", flip && "-scale-x-100", className)}
+      className={cn("text-gilt", flip && "-scale-x-100", className)}
       fill="currentColor"
     >
       <path d="M12 40c-2-8-2-16 0-24" fill="none" stroke="currentColor" strokeWidth="1.2" />

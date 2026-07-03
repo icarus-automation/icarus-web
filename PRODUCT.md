@@ -10,7 +10,7 @@ Small business owners, startup founders, and corporate department heads across t
 
 ## Product Purpose
 
-Convert visitors into "Book a Free Demo" bookings. Icarus Automation provides n8n workflow automations, custom web systems, IoT + embedded solutions, and Keep Inv (an affordable POS/inventory platform) — all positioned as enterprise-grade capability at a price Philippine SMBs can actually pay. Success is a booked consultation. Secondary conversion: landing Keep Inv trial/demo interest from businesses with specific inventory needs.
+Convert visitors into "Book a Free Demo" bookings. Icarus.Automation (the DTI-registered business name) provides n8n workflow automations, custom web systems, IoT + embedded solutions, and Keep Inv (an affordable POS/inventory platform) — all positioned as enterprise-grade capability at a price Philippine SMBs can actually pay. Success is a booked consultation. Secondary conversion: landing Keep Inv trial/demo interest from businesses with specific inventory needs.
 
 ## Brand Personality
 

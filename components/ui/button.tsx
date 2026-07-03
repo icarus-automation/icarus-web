@@ -3,15 +3,16 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 rounded-sm font-medium transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:translate-y-px disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center gap-2 rounded-sm font-medium transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blueprint-deep active:translate-y-px disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        primary: "bg-primary text-white hover:bg-primary-deep",
+        // blueprint-deep fill: white label passes AA (4.9:1); bright blueprint does not
+        primary: "bg-blueprint-deep text-white hover:bg-blueprint-pressed",
         secondary:
-          "border border-line bg-white text-ink hover:border-ink/40",
-        ghost: "text-ink-muted hover:text-primary-deep",
-        inverse: "bg-white text-ink hover:bg-gold-soft",
+          "border border-ruling bg-white text-ink hover:border-ink/40",
+        ghost: "text-ink-mid hover:text-blueprint-deep",
+        inverse: "bg-white text-ink hover:bg-gilt-tint",
       },
       size: {
         sm: "h-9 px-4 text-sm",

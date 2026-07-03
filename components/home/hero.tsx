@@ -14,7 +14,7 @@ export function Hero() {
         <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
             <Reveal>
-              <p className="flex items-center gap-2 text-xs font-semibold tracking-[0.25em] text-gold uppercase">
+              <p className="flex items-center gap-2 text-xs font-semibold tracking-[0.25em] text-gilt-deep uppercase">
                 <Laurel className="h-8 w-5" />
                 Automation · Web &amp; Systems · IoT
                 <Laurel className="h-8 w-5" flip />
@@ -25,11 +25,11 @@ export function Hero() {
                 Reach higher.
                 <br />
                 Let your business{" "}
-                <span className="text-primary-deep">fly on autopilot.</span>
+                <span className="text-blueprint-deep">fly on autopilot.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.16}>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-muted">
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-mid">
                 Enterprise-grade automation, custom systems, and IoT for
                 Philippine businesses, without the enterprise price.
               </p>
@@ -49,14 +49,21 @@ export function Hero() {
 
           <Reveal delay={0.2} className="relative mx-auto w-full max-w-sm lg:max-w-none">
             <div className="relative aspect-4/5">
-              <SunRays className="absolute inset-0 m-auto size-[135%] -translate-x-[13%] -translate-y-[12%]" />
+              {/* Anchor matches the PNG's own figure bounding box (~47% x, ~50% y),
+                  not the frame center, so rays span the full figure top-to-bottom.
+                  The glow is the one sanctioned glow in the system (SunRays motif). */}
+              <div
+                aria-hidden
+                className="absolute top-[50%] left-[47%] size-[55%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gilt/15 blur-3xl"
+              />
+              <SunRays className="absolute top-[50%] left-[47%] size-[115%] -translate-x-1/2 -translate-y-1/2" />
               <Image
                 src="/assets/icarus-illustration.png"
                 alt="Icarus illustration, winged figure rising toward the sun"
                 fill
                 priority
                 sizes="(min-width: 1024px) 40vw, 90vw"
-                className="rounded-sm border border-line object-cover"
+                className="object-contain"
               />
             </div>
           </Reveal>

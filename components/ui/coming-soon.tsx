@@ -1,4 +1,3 @@
-import { Hourglass } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
@@ -17,13 +16,16 @@ export function ComingSoon({
   return (
     <section className="marble flex min-h-[70vh] items-center pt-32 pb-20 sm:pt-40">
       <Container>
-        <SectionHeading eyebrow={eyebrow} title={title} subtitle={subtitle} />
-        <Reveal delay={0.15} className="mt-10 flex flex-col items-center gap-6">
-          <div className="flex items-center gap-4 text-gold/70">
-            <Laurel className="h-10 w-6" />
-            <Hourglass className="size-6" />
-            <Laurel className="h-10 w-6" flip />
-          </div>
+        <Reveal>
+          {/* Canonical kicker: gilt label flanked by a matched laurel pair */}
+          <p className="flex items-center justify-center gap-2 text-xs font-semibold tracking-[0.25em] text-gilt-deep uppercase">
+            <Laurel className="h-8 w-5" />
+            {eyebrow}
+            <Laurel className="h-8 w-5" flip />
+          </p>
+        </Reveal>
+        <SectionHeading title={title} subtitle={subtitle} className="mt-5" />
+        <Reveal delay={0.15} className="mt-10 text-center">
           <Button href="/" variant="secondary">
             Back to home
           </Button>

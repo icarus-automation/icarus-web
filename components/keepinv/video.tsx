@@ -5,12 +5,12 @@ import { Reveal } from "@/components/motion/reveal";
 
 export function KeepInvVideo() {
   return (
-    <section className="border-y border-line bg-white py-20 sm:py-24">
+    <section className="border-y border-ruling bg-folio-raised py-20 sm:py-24">
       <Container className="max-w-4xl">
         <SectionHeading title="Watch Keep Inv work" />
         <Reveal delay={0.1}>
           {/* TODO: replace youtubeId in content/keepinv.ts with the real ad video once uploaded */}
-          <div className="mt-10 overflow-hidden rounded-sm border border-line">
+          <div className="mt-10 overflow-hidden rounded-sm border border-ruling">
             <iframe
               className="aspect-video w-full"
               src={`https://www.youtube-nocookie.com/embed/${keepinv.youtubeId}`}

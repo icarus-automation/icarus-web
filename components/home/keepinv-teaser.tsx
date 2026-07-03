@@ -32,7 +32,7 @@ export function KeepInvTeaser() {
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <Reveal className="relative order-2 lg:order-1">
-            <div className="relative aspect-4/3 overflow-hidden rounded-sm border border-line">
+            <div className="relative aspect-4/3 overflow-hidden rounded-sm border border-ruling">
               <Image
                 src="/assets/pxl-default-image.png"
                 alt="Replace with: Keep Inv dashboard screenshot showing inventory and POS"
@@ -50,7 +50,7 @@ export function KeepInvTeaser() {
                 Keep Inv: the inventory &amp; POS big retailers run, at a
                 small-business price
               </h2>
-              <p className="mt-4 text-lg leading-relaxed text-ink-muted">
+              <p className="mt-4 text-lg leading-relaxed text-ink-mid">
                 A modern inventory management system with integrated POS,
                 printers, barcode, and handheld RFID. Launched and running in
                 real businesses today.
@@ -60,12 +60,12 @@ export function KeepInvTeaser() {
               {highlights.map((item, i) => (
                 <Reveal as="li" key={item.title} delay={0.08 * (i + 1)}>
                   <div className="flex gap-4">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-sm bg-primary-soft text-primary-deep">
+                    <div className="flex size-10 shrink-0 items-center justify-center rounded-sm bg-blueprint-tint text-blueprint-deep">
                       <item.icon className="size-5" />
                     </div>
                     <div>
                       <p className="font-semibold text-ink">{item.title}</p>
-                      <p className="text-sm text-ink-muted">{item.description}</p>
+                      <p className="text-sm text-ink-mid">{item.description}</p>
                     </div>
                   </div>
                 </Reveal>

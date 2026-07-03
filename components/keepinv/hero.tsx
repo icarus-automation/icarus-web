@@ -17,11 +17,11 @@ export function KeepInvHero() {
               <Badge>Live product</Badge>
               <h1 className="mt-4 font-display text-4xl leading-[1.1] text-balance text-ink sm:text-5xl">
                 {keepinv.name}
-                <span className="block text-primary-deep">
+                <span className="block text-blueprint-deep">
                   Inventory &amp; POS, without the price tag
                 </span>
               </h1>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-muted">
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-mid">
                 {keepinv.description}
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -37,7 +37,7 @@ export function KeepInvHero() {
           </div>
 
           <Reveal delay={0.15}>
-            <div className="relative aspect-4/3 overflow-hidden rounded-sm border border-line">
+            <div className="relative aspect-4/3 overflow-hidden rounded-sm border border-ruling">
               <Image
                 src="/assets/pxl-default-image.png"
                 alt="Replace with: Keep Inv product hero shot, POS screen with printer and RFID reader"

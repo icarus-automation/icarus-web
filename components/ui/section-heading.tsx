@@ -11,7 +11,8 @@ export function SectionHeading({
 }: {
   /** Optional small label. Use sparingly: at most one per few sections. */
   eyebrow?: string;
-  title: string;
+  /** Accepts nodes so a key phrase can carry the blueprint-deep authorship accent. */
+  title: React.ReactNode;
   subtitle?: string;
   align?: "center" | "left";
   tone?: "light" | "dark";
@@ -27,7 +28,12 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <p className="text-xs font-semibold tracking-[0.25em] text-gold uppercase">
+        <p
+          className={cn(
+            "text-xs font-semibold tracking-[0.25em] uppercase",
+            dark ? "text-gilt" : "text-gilt-deep",
+          )}
+        >
           {eyebrow}
         </p>
       )}
@@ -43,8 +49,8 @@ export function SectionHeading({
       {subtitle && (
         <p
           className={cn(
-            "mt-4 text-base leading-relaxed sm:text-lg",
-            dark ? "text-white/70" : "text-ink-muted",
+            "mt-4 text-lg leading-relaxed text-pretty",
+            dark ? "text-white/70" : "text-ink-mid",
           )}
         >
           {subtitle}

@@ -1,10 +1,11 @@
 export const site = {
-  name: "Icarus Automation",
+  // "Icarus Automation" was taken in DTI BNRS; registered name is "Icarus.Automation"
+  name: "Icarus.Automation",
   shortName: "Icarus",
   url: "https://icarusautomation.com",
   tagline: "Automation, custom systems & IoT for Philippine businesses",
   description:
-    "Icarus Automation builds n8n automations, custom web systems, IoT solutions, and affordable POS & inventory software for small businesses, startups, and corporations across the Philippines.",
+    "Icarus.Automation builds n8n automations, custom web systems, IoT solutions, and affordable POS & inventory software for small businesses, startups, and corporations across the Philippines.",
   email: "acegabriel0809@gmail.com",
   facebook: "https://www.facebook.com/profile.php?id=61582103931111",
   location: "Philippines",
@@ -94,12 +95,26 @@ export const clients = [
   { name: "Chu Gas Corp.", logo: null },
 ] as const;
 
-// TODO: replace with real figures once available
-export const stats = [
-  { value: 12, suffix: "+", label: "Projects shipped" },
-  { value: 1400, suffix: "+", label: "Hours automated yearly" },
-  { value: 4, suffix: "", label: "Industries served" },
-  { value: 98, suffix: "%", label: "Client satisfaction" },
+// Weight over volume (PRODUCT.md principle 4): named, verifiable facts — no generic counters
+export const proofPoints = [
+  {
+    fact: "12+ systems shipped",
+    detail:
+      "Automations, web systems, and devices — built, launched, and still running for the businesses that ordered them.",
+    certificate: null,
+  },
+  {
+    fact: "Keep Inv is live in the market",
+    detail:
+      "Our POS & inventory platform rings up real sales and audits real stockrooms in Philippine businesses today.",
+    certificate: null,
+  },
+  {
+    fact: "DTI-registered business",
+    detail:
+      "Icarus.Automation is registered with the Department of Trade and Industry.",
+    certificate: "/BNRS_Certificate.pdf",
+  },
 ] as const;
 
 export const faqs = [

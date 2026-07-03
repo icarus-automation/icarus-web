@@ -4,7 +4,7 @@ import { ComingSoon } from "@/components/ui/coming-soon";
 export const metadata: Metadata = {
   title: "Success Stories",
   description:
-    "Successful implementations from Icarus Automation clients. Coming soon.",
+    "Successful implementations from Icarus.Automation clients. Coming soon.",
   alternates: { canonical: "/success-stories" },
 };
 
