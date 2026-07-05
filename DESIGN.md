@@ -1,13 +1,15 @@
 ---
-name: Icarus Automation
+name: Icarus.Automation
 description: Automation, custom systems & IoT for Philippine businesses
 colors:
   blueprint: "#009dff"
   blueprint-deep: "#0074c2"
+  blueprint-pressed: "#00588f"
   blueprint-tint: "#e5f5ff"
   ink: "#0a1b2e"
   ink-mid: "#47586c"
   gilt: "#c9a227"
+  gilt-deep: "#856809"
   gilt-tint: "#f6efd8"
   folio: "#fafaf8"
   folio-raised: "#f1f3f6"
@@ -57,13 +59,13 @@ spacing:
   2xl: "96px"
 components:
   button-primary:
-    backgroundColor: "{colors.blueprint}"
+    backgroundColor: "{colors.blueprint-deep}"
     textColor: "#ffffff"
     rounded: "{rounded.sm}"
     padding: "0 24px"
     height: "44px"
   button-primary-hover:
-    backgroundColor: "{colors.blueprint-deep}"
+    backgroundColor: "{colors.blueprint-pressed}"
   button-secondary:
     backgroundColor: "#ffffff"
     textColor: "{colors.ink}"
@@ -86,7 +88,7 @@ components:
     backgroundColor: "{colors.gilt-tint}"
 ---
 
-# Design System: Icarus Automation
+# Design System: Icarus.Automation
 
 ## 1. Overview
 
@@ -110,12 +112,14 @@ The design explicitly rejects three failure modes: the cheap local agency look (
 A two-accent system. Cerulean blue marks action and direction — the ruling line on the draft. Gold marks quality and heritage — the illuminated letter on the master document. Neutrals carry everything else without competing.
 
 ### Primary
-- **Cerulean Blueprint** (#009dff): The primary action color. Buttons, links, active nav states, interactive affordances, focus rings, and the `::selection` highlight. Every element that says "do this next" uses blueprint. Nowhere else.
-- **Blueprint Deep** (#0074c2): Hover and committed states for blueprint elements. Also the word "Automation" in the logotype — the blue that reads as authorship and precision rather than energy.
+- **Cerulean Blueprint** (#009dff): The brand's action hue as energy: the `::selection` highlight, tint washes, and blueprint accents on dark (ink) grounds. Too light to carry white text or a focus ring on light grounds at AA (2.9:1) — interactive fills on light surfaces use Blueprint Deep instead.
+- **Blueprint Deep** (#0074c2): The working interactive color: button fills (white text passes AA at 4.9:1), links, active nav states, focus rings. Also the word ".Automation" in the logotype — the blue that reads as authorship and precision rather than energy.
+- **Blueprint Pressed** (#00588f): Hover/pressed state for blueprint-deep fills. Tonal variant, not a new accent.
 - **Blueprint Tint** (#e5f5ff): Soft background wash behind blueprint-adjacent or featured content. Used as icon container fills and contextual card highlights. Never as the primary page surface.
 
 ### Secondary
-- **Gilt** (#c9a227): The quality seal. Used for hero eyebrow kickers, laurel accent elements, stat labels, and sparse typographic emphasis on key facts. Never on interactive elements (blueprint owns that domain). Never as fill on large surfaces. Appears at most once per viewport.
+- **Gilt** (#c9a227): The quality seal. Used for laurel accent elements, stat figures on ink, and sparse decorative emphasis. Never on interactive elements (blueprint owns that domain). Never as fill on large surfaces. Appears at most once per viewport. Fails AA as small text on light grounds (2.3:1) — use Gilt Deep there.
+- **Gilt Deep** (#856809): Engraved gilt for small text on light surfaces (eyebrow kickers, gilt labels). ≥4.5:1 on folio and folio-raised. Tonal variant, not a new accent.
 - **Gilt Tint** (#f6efd8): Inverse button hover state and gilt-inflected contextual areas. Always secondary to Gilt itself; where Gilt marks the edge, Gilt Tint fills the interior.
 
 ### Neutral
@@ -173,7 +177,7 @@ The sole intentional exception: a glow treatment on the animated `<SunRays />` h
 The primary conversion mechanism. Precision-machined: 2px radius, exact heights, no decorative excess. The system has four button variants corresponding to four distinct use cases.
 
 - **Shape:** 2px radius (`rounded-sm`) on all variants. The corner exists to avoid the "printed" look; it is not a softening choice.
-- **Primary (CTA):** `background: blueprint (#009dff)`, `color: white`, `height: 44px (h-11)`, `padding: 0 24px`. Hover: `background: blueprint-deep (#0074c2)`. Focus: `outline: 2px solid blueprint`, `outline-offset: 2px`. Active: `translateY(1px)`. Used only for the page's single highest-priority action.
+- **Primary (CTA):** `background: blueprint-deep (#0074c2)`, `color: white` (AA 4.9:1), `height: 44px (h-11)`, `padding: 0 24px`. Hover: `background: blueprint-pressed (#00588f)`. Focus: `outline: 2px solid blueprint-deep`, `outline-offset: 2px`. Active: `translateY(1px)`. Used only for the page's single highest-priority action.
 - **Secondary:** `border: 1px solid ruling`, `background: white`, `color: ink`. Hover: `border-color: ink/40`. Used alongside Primary when a secondary path deserves equal visual presence.
 - **Ghost:** `color: ink-mid`. Hover: `color: blueprint-deep`. No background, no border. Navigation-weight links and tertiary actions only.
 - **Inverse:** `background: white`, `color: ink`. Hover: `background: gilt-tint`. Used on dark or colored backgrounds (CTA band, dark hero variants) where Primary would need to reverse.
@@ -181,7 +185,7 @@ The primary conversion mechanism. Precision-machined: 2px radius, exact heights,
 - **Disabled:** `opacity: 0.5`, `pointer-events: none`. Same shape and color; no special disabled palette.
 
 ### Navigation
-- **Brand mark:** Marcellus 400, 1.125rem, `color: ink`. The word "Automation" in `blueprint-deep`. The logotype is typographic — no icon or emblem at the nav bar level.
+- **Brand mark:** Marcellus 400, 1.125rem, `color: ink`. Set as "Icarus.Automation" (the DTI-registered name) with ".Automation" in `blueprint-deep`. The logotype is typographic — no icon or emblem at the nav bar level.
 - **Nav links:** Inter, 0.875rem. Default: `color: ink-mid`, `padding: 8px 14px`, `border-radius: 2px`. Hover: `color: ink`. Active: `color: blueprint-deep`, `font-weight: 600`.
 - **Scroll behavior:** Transparent + borderless at page top → `background: folio`, `border-bottom: 1px solid ruling` after 12px scroll. Transition: `colors 200ms ease`. This is the system's primary use of the tonal-shift elevation concept.
 - **Mobile menu:** Animated height expansion beneath the fixed header, using Motion `AnimatePresence`. Inherits all link styles. Full-width Primary button at the bottom as the mobile conversion point.

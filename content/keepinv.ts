@@ -68,7 +68,7 @@ export const keepinvPricing = [
       "Lifetime updates",
     ],
     note: "Some PRO features not included",
-    cta: { label: "Book a Free Demo", href: "/contact" },
+    cta: { label: "Message us on Facebook", href: site.facebook },
     featured: false,
   },
   {
@@ -86,8 +86,8 @@ export const keepinvPricing = [
       "Lifetime updates",
     ],
     note: null,
-    cta: { label: "Book a Free Demo", href: "/contact" },
-    featured: true,
+    cta: { label: "Message us on Facebook", href: site.facebook },
+    featured: false,
   },
   {
     name: "PRO + Devices",
@@ -105,8 +105,8 @@ export const keepinvPricing = [
       "On-site setup",
     ],
     note: "Sample price. Final bundle depends on devices chosen.",
-    cta: { label: "Book a Free Demo", href: "/contact" },
-    featured: false,
+    cta: { label: "Message us on Facebook", href: site.facebook },
+    featured: true,
   },
   {
     name: "Custom",

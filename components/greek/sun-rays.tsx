@@ -15,7 +15,7 @@ export function SunRays({
     <svg
       aria-hidden
       viewBox="0 0 400 400"
-      className={cn("animate-rays text-gold", className)}
+      className={cn("animate-rays text-gilt", className)}
       fill="none"
     >
       {Array.from({ length: rays }).map((_, i) => {

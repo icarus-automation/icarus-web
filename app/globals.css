@@ -1,29 +1,28 @@
 @import "tailwindcss";
 
-:root {
-  --background: #fafaf8;
-  --foreground: #0a1b2e;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
   --font-display: var(--font-marcellus);
   --font-mono: var(--font-geist-mono);
 }
 
 @theme {
-  --color-primary: #009dff;
-  --color-primary-deep: #0074c2;
-  --color-primary-soft: #e5f5ff;
+  /* The Blueprint & Gilding palette — token names per DESIGN.md */
+  --color-blueprint: #009dff;
+  --color-blueprint-deep: #0074c2;
+  --color-blueprint-pressed: #00588f;
+  --color-blueprint-tint: #e5f5ff;
   --color-ink: #0a1b2e;
-  --color-ink-muted: #47586c;
-  --color-gold: #c9a227;
-  --color-gold-soft: #f6efd8;
-  --color-surface: #fafaf8;
-  --color-surface-2: #f1f3f6;
-  --color-line: #e3e7ec;
+  --color-ink-mid: #47586c;
+  --color-gilt: #c9a227;
+  --color-gilt-deep: #856809;
+  --color-gilt-tint: #f6efd8;
+  --color-folio: #fafaf8;
+  --color-folio-raised: #f1f3f6;
+  --color-ruling: #e3e7ec;
+
+  /* Blueprint corner: 2px on every card, button, and container */
+  --radius-sm: 2px;
 
   --animate-rays: rays-spin 90s linear infinite;
   --animate-marquee: marquee 32s linear infinite;
@@ -61,13 +60,13 @@ html.lenis body {
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-folio);
+  color: var(--color-ink);
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 ::selection {
-  background: #009dff;
+  background: var(--color-blueprint);
   color: #ffffff;
 }
 
@@ -83,7 +82,7 @@ body {
   mask-size: 40px 10px;
 }
 
-/* Subtle marble grain for hero / band backgrounds */
+/* Faint blueprint/gilt wash behind hero and featured bands (tint usage per DESIGN.md) */
 .marble {
   background-image: radial-gradient(
       ellipse 80% 60% at 70% 10%,
@@ -95,10 +94,6 @@ body {
       rgba(201, 162, 39, 0.06),
       transparent 60%
     );
-}
-
-.text-balance {
-  text-wrap: balance;
 }
 
 @media (prefers-reduced-motion: reduce) {

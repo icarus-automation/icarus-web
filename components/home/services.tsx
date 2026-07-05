@@ -16,7 +16,12 @@ export function Services() {
     <section className="py-20 sm:py-28" id="services">
       <Container>
         <SectionHeading
-          title="Four ways we help you rise"
+          title={
+            <>
+              Four ways we help you{" "}
+              <span className="text-blueprint-deep">rise</span>
+            </>
+          }
           subtitle="From daily marketing on autopilot to full POS and inventory systems. We build technology that pays for itself."
         />
         <Stagger as="ul" className="mt-14 grid gap-5 sm:grid-cols-2">
@@ -26,15 +31,15 @@ export function Services() {
               <StaggerItem
                 as="li"
                 key={service.title}
-                className="group relative rounded-sm border border-line bg-white p-7 transition-colors duration-200 hover:border-ink/30"
+                className="rounded-sm border border-ruling bg-folio-raised p-6"
               >
-                <div className="flex size-12 items-center justify-center rounded-sm bg-primary-soft text-primary-deep transition-colors duration-200 group-hover:bg-primary group-hover:text-white">
+                <div className="flex size-12 items-center justify-center rounded-sm bg-blueprint-tint text-blueprint-deep">
                   <Icon className="size-6" />
                 </div>
-                <h3 className="mt-5 font-display text-xl text-ink">
+                <h3 className="mt-5 text-lg font-semibold text-ink">
                   {service.title}
                 </h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-ink-muted">
+                <p className="mt-2.5 text-base leading-relaxed text-ink-mid">
                   {service.description}
                 </p>
                 <ul className="mt-4 space-y-1.5">
@@ -43,7 +48,7 @@ export function Services() {
                       key={point}
                       className="flex items-center gap-2 text-sm text-ink"
                     >
-                      <Check className="size-3.5 text-gold" />
+                      <Check className="size-3.5 text-ink-mid" />
                       {point}
                     </li>
                   ))}

@@ -35,15 +35,15 @@ export function KeepInvFeatures() {
               <StaggerItem
                 as="li"
                 key={feature.title}
-                className="rounded-sm border border-line bg-white p-6 transition-colors duration-200 hover:border-ink/30"
+                className="rounded-sm border border-ruling bg-folio-raised p-6"
               >
-                <div className="flex size-11 items-center justify-center rounded-sm bg-primary-soft text-primary-deep">
+                <div className="flex size-11 items-center justify-center rounded-sm bg-blueprint-tint text-blueprint-deep">
                   <Icon className="size-5" />
                 </div>
-                <h3 className="mt-4 font-display text-lg text-ink">
+                <h3 className="mt-4 text-lg font-semibold text-ink">
                   {feature.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                <p className="mt-2 text-base leading-relaxed text-ink-mid">
                   {feature.description}
                 </p>
               </StaggerItem>

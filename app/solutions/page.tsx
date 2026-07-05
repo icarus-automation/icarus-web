@@ -30,7 +30,7 @@ export default function SolutionsPage() {
             <StaggerItem as="li">
               <Link
                 href="/solutions/keepinv"
-                className="group block overflow-hidden rounded-sm border border-line bg-white transition-colors duration-200 hover:border-ink/30"
+                className="group block overflow-hidden rounded-sm border border-ruling bg-folio-raised transition-colors duration-200 hover:border-ink/30"
               >
                 <div className="relative aspect-3/2 overflow-hidden">
                   <Image
@@ -43,13 +43,13 @@ export default function SolutionsPage() {
                 </div>
                 <div className="p-6">
                   <Badge>Live product</Badge>
-                  <h2 className="mt-3 font-display text-xl text-ink">
+                  <h2 className="mt-3 text-lg font-semibold text-ink">
                     {keepinv.name}
                   </h2>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                  <p className="mt-2 text-base leading-relaxed text-ink-mid">
                     {keepinv.oneLiner}
                   </p>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-deep">
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-blueprint-deep">
                     See features &amp; pricing
                     <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
@@ -59,10 +59,10 @@ export default function SolutionsPage() {
 
             {["Next product", "Your project?"].map((label) => (
               <StaggerItem as="li" key={label}>
-                <div className="flex h-full min-h-64 flex-col items-center justify-center gap-3 rounded-sm border border-dashed border-line bg-surface-2/60 p-6 text-center">
-                  <Hourglass className="size-6 text-gold/60" />
-                  <p className="font-display text-lg text-ink-muted">{label}</p>
-                  <p className="text-sm text-ink-muted/70">
+                <div className="flex h-full min-h-64 flex-col items-center justify-center gap-3 rounded-sm border border-dashed border-ruling bg-folio-raised p-6 text-center">
+                  <Hourglass aria-hidden className="size-6 text-ink/30" />
+                  <p className="text-base font-medium text-ink-mid">{label}</p>
+                  <p className="text-sm text-ink-mid">
                     {label === "Your project?"
                       ? "The next solution here could be the system we build for you."
                       : "In development. Coming soon."}

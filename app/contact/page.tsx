@@ -4,12 +4,13 @@ import { FacebookIcon } from "@/components/icons/facebook";
 import { site } from "@/content/site";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { Reveal } from "@/components/motion/reveal";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Book a Free Demo",
   description:
-    "Book a free demo with Icarus Automation. Automation, custom systems, IoT, and POS & inventory for Philippine businesses.",
+    "Book a free demo with Icarus.Automation. Automation, custom systems, IoT, and POS & inventory for Philippine businesses.",
   alternates: { canonical: "/contact" },
 };
 
@@ -23,7 +24,7 @@ const channels = [
   {
     icon: FacebookIcon,
     label: "Message us on Facebook",
-    value: "Icarus Automation",
+    value: "Icarus.Automation",
     href: site.facebook,
   },
   {
@@ -42,45 +43,56 @@ export default function ContactPage() {
           title="Book your free demo"
           subtitle="Pick a time that works for you. 30 minutes, no obligation, Tagalog or English."
         />
+      </Container>
 
-        <div className="mx-auto mt-14 grid max-w-5xl gap-8 lg:grid-cols-[1fr_280px]">
-          <Reveal delay={0.1}>
-            <div className="overflow-hidden rounded-sm border border-line bg-white">
-              <iframe
-                src={site.bookingUrl}
-                title="Book a free demo with Icarus Automation"
-                className="h-[52rem] w-full"
-                loading="lazy"
-              />
-            </div>
-          </Reveal>
+      {/* Full-width booking calendar: tall enough that the embed never scrolls internally */}
+      <Container className="mt-12 max-w-7xl">
+        <Reveal>
+          <div className="overflow-hidden rounded-sm border border-ruling bg-white">
+            <iframe
+              src={site.bookingUrl}
+              title="Book a free demo with Icarus.Automation"
+              className="h-300 w-full md:h-275"
+              loading="lazy"
+            />
+          </div>
+        </Reveal>
+      </Container>
 
-          <Reveal delay={0.2}>
-            <aside className="space-y-4">
-              <p className="text-sm leading-relaxed text-ink-muted">
-                Prefer to reach out directly? These work too.
-              </p>
-              {channels.map((channel) => {
-                const content = (
-                  <div className="flex items-start gap-3.5 rounded-sm border border-line bg-white p-5 transition-colors hover:border-ink/30">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-sm bg-primary-soft text-primary-deep">
-                      <channel.icon className="size-5" />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-sm font-semibold text-ink">
-                        {channel.label}
-                      </p>
-                      <p className="truncate text-sm text-ink-muted">
-                        {channel.value}
-                      </p>
-                    </div>
-                  </div>
-                );
-                return channel.href ? (
+      <Container className="mt-12 max-w-4xl">
+        <Reveal>
+          <p className="text-center text-sm text-ink-mid">
+            Prefer to reach out directly? These work too.
+          </p>
+        </Reveal>
+        <Stagger className="mt-5 grid gap-4 sm:grid-cols-3">
+          {channels.map((channel) => {
+            const content = (
+              <div
+                className={cn(
+                  "flex h-full items-start gap-3.5 rounded-sm border border-ruling bg-folio-raised p-4",
+                  channel.href && "transition-colors hover:border-ink/30",
+                )}
+              >
+                <div className="flex size-10 shrink-0 items-center justify-center rounded-sm bg-blueprint-tint text-blueprint-deep">
+                  <channel.icon className="size-5" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-ink">
+                    {channel.label}
+                  </p>
+                  <p className="truncate text-sm text-ink-mid">
+                    {channel.value}
+                  </p>
+                </div>
+              </div>
+            );
+            return (
+              <StaggerItem key={channel.label}>
+                {channel.href ? (
                   <a
-                    key={channel.label}
                     href={channel.href}
-                    className="block"
+                    className="block h-full"
                     {...(channel.href.startsWith("http")
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
@@ -88,12 +100,12 @@ export default function ContactPage() {
                     {content}
                   </a>
                 ) : (
-                  <div key={channel.label}>{content}</div>
-                );
-              })}
-            </aside>
-          </Reveal>
-        </div>
+                  content
+                )}
+              </StaggerItem>
+            );
+          })}
+        </Stagger>
       </Container>
     </section>
   );

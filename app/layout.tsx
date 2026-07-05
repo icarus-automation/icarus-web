@@ -3,6 +3,7 @@ import { Inter, Marcellus, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/lib/lenis-provider";
 import { Navbar } from "@/components/layout/navbar";
+import { ScrollProgress } from "@/components/layout/scroll-progress";
 import { Footer } from "@/components/layout/footer";
 import { site } from "@/content/site";
 
@@ -50,6 +51,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <LenisProvider>
+          <ScrollProgress />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />

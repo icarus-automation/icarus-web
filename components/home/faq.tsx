@@ -18,13 +18,13 @@ export function Faq() {
           title="Before you take flight"
           subtitle="The things business owners usually ask us first."
         />
-        <div className="mt-12 divide-y divide-line rounded-sm border border-line bg-white">
+        <div className="mt-12 divide-y divide-ruling rounded-sm border border-ruling bg-folio-raised">
           {faqs.map((faq, i) => {
             const open = openIndex === i;
             return (
               <div key={faq.question}>
                 <button
-                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-blueprint-deep"
                   onClick={() => setOpenIndex(open ? null : i)}
                   aria-expanded={open}
                   aria-controls={`faq-panel-${i}`}
@@ -34,7 +34,7 @@ export function Faq() {
                   <Plus
                     aria-hidden
                     className={cn(
-                      "size-5 shrink-0 text-gold transition-transform duration-300",
+                      "size-5 shrink-0 text-blueprint-deep transition-transform duration-300",
                       open && "rotate-45",
                     )}
                   />
@@ -51,7 +51,7 @@ export function Faq() {
                       transition={{ duration: 0.3, ease: "easeOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="px-6 pb-5 text-sm leading-relaxed text-ink-muted">
+                      <p className="px-6 pb-5 text-base leading-relaxed text-pretty text-ink-mid">
                         {faq.answer}
                       </p>
                     </motion.div>

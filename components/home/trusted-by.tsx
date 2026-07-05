@@ -5,10 +5,10 @@ import { Reveal } from "@/components/motion/reveal";
 
 export function TrustedBy() {
   return (
-    <section className="border-y border-line bg-white py-10">
+    <section className="border-y border-ruling bg-folio-raised py-10">
       <Container>
         <Reveal>
-          <p className="text-center text-xs font-semibold tracking-[0.25em] text-ink-muted/70 uppercase">
+          <p className="text-center text-xs font-semibold tracking-[0.25em] text-ink-mid uppercase">
             Trusted by Philippine businesses
           </p>
           <ul className="mt-7 flex flex-wrap items-center justify-center gap-x-12 gap-y-6">

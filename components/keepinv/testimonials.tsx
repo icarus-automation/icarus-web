@@ -10,13 +10,13 @@ export function KeepInvTestimonials() {
         <SectionHeading title="What our clients say" />
         {/* TODO: replace with real testimonial once the first client deployment completes */}
         <Reveal delay={0.1}>
-          <figure className="mt-12 rounded-sm border border-dashed border-line bg-white p-8 text-center">
-            <Quote className="mx-auto size-8 text-gold/50" />
-            <blockquote className="mt-4 text-lg leading-relaxed text-ink-muted italic">
+          <figure className="mt-12 rounded-sm border border-dashed border-ruling bg-folio-raised p-8 text-center">
+            <Quote aria-hidden className="mx-auto size-8 text-gilt" />
+            <blockquote className="mt-4 text-lg leading-relaxed text-ink-mid italic">
               Our first client&apos;s deployment is underway. Their story will
               live here soon.
             </blockquote>
-            <figcaption className="mt-4 text-sm text-ink-muted/70">
+            <figcaption className="mt-4 text-sm text-ink-mid">
               First testimonial arriving after launch
             </figcaption>
           </figure>
