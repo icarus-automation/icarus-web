@@ -6,18 +6,18 @@ import { Stagger, StaggerItem } from "@/components/motion/reveal";
 // TODO: replace placeholder photos with real client deployment shots
 const photos = [
   {
-    src: "/assets/pxl-default-image.png",
-    alt: "Replace with: cashier ringing up a sale on the Keep Inv POS at a client's counter",
+    src: "/assets/keep-inv-logo.png",
+    alt: "Keep Inv logo",
     caption: "The POS in daily use at a client's counter",
   },
   {
-    src: "/assets/pxl-default-image.png",
-    alt: "Replace with: staff sweeping a stockroom with the handheld RFID reader",
+    src: "/assets/keep-inv-logo.png",
+    alt: "Keep Inv logo",
     caption: "An RFID audit sweep in the stockroom",
   },
   {
-    src: "/assets/pxl-default-image.png",
-    alt: "Replace with: receipt printer, label printer, and barcode scanner set up on site",
+    src: "/assets/keep-inv-logo.png",
+    alt: "Keep Inv logo",
     caption: "Printers and scanners set up on site",
   },
 ] as const;

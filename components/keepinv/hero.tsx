@@ -39,8 +39,8 @@ export function KeepInvHero() {
           <Reveal delay={0.15}>
             <div className="relative aspect-4/3 overflow-hidden rounded-sm border border-ruling">
               <Image
-                src="/assets/pxl-default-image.png"
-                alt="Replace with: Keep Inv product hero shot, POS screen with printer and RFID reader"
+                src="/assets/keep-inv-logo.png"
+                alt="Keep Inv logo"
                 fill
                 priority
                 sizes="(min-width: 1024px) 50vw, 90vw"

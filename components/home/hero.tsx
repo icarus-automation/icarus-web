@@ -22,7 +22,7 @@ export function Hero() {
             </Reveal>
             <Reveal delay={0.08}>
               <h1 className="mt-5 font-display text-4xl leading-[1.08] text-balance text-ink sm:text-5xl md:text-6xl">
-                Reach higher.
+                Ready for takeoff?
                 <br />
                 Let your business{" "}
                 <span className="text-blueprint-deep">fly on autopilot.</span>
@@ -30,8 +30,8 @@ export function Hero() {
             </Reveal>
             <Reveal delay={0.16}>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-mid">
-                Enterprise-grade automation, custom systems, and IoT for
-                Philippine businesses, without the enterprise price.
+                Imagine your business having an enterprise level automation, customized system, and IoT without the price of enterprise.
+                <span className="text-blueprint-deep"> Icarus can make that a reality.</span>
               </p>
             </Reveal>
             <Reveal delay={0.24}>

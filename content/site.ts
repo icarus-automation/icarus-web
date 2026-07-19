@@ -47,11 +47,11 @@ export const services = [
     points: ["Sensor networks", "Embedded firmware", "Live dashboards"],
   },
   {
-    icon: "scan",
-    title: "POS & Inventory Systems",
+    icon: "digitize",
+    title: "Business Digitization",
     description:
-      "Keep Inv, our POS and inventory platform, complete with receipt printers, label printers, barcode scanners, and handheld RFID.",
-    points: ["Lifetime access from ₱1,299", "RFID audits in seconds", "Hardware included options"],
+      "Turn spreadsheets, paper records, and manual processes into organized digital workflows built for your business.",
+    points: ["Process assessment", "Data migration and setup", "Staff onboarding and training"],
   },
 ] as const;
 

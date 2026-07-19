@@ -32,13 +32,13 @@ export function KeepInvTeaser() {
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <Reveal className="relative order-2 lg:order-1">
-            <div className="relative aspect-4/3 overflow-hidden rounded-sm border border-ruling">
+            <div className="relative aspect-square overflow-hidden rounded-sm border border-ruling bg-folio-raised">
               <Image
-                src="/assets/pxl-default-image.png"
-                alt="Replace with: Keep Inv dashboard screenshot showing inventory and POS"
+                src="/assets/keep-inv-logo.png"
+                alt="Keep Inv logo"
                 fill
                 sizes="(min-width: 1024px) 50vw, 90vw"
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           </Reveal>

@@ -34,8 +34,8 @@ export default function SolutionsPage() {
               >
                 <div className="relative aspect-3/2 overflow-hidden">
                   <Image
-                    src="/assets/pxl-default-image.png"
-                    alt="Replace with: Keep Inv solution cover, POS and inventory dashboard"
+                    src="/assets/keep-inv-logo.png"
+                    alt="Keep Inv logo"
                     fill
                     sizes="(min-width: 1024px) 33vw, 90vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
