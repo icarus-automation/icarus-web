@@ -1,75 +1,64 @@
-"use client";
-
-import { useRef } from "react";
+import Image from "next/image";
 
 /**
- * The bright blue field + duotone Icarus plate that fills a card edge-to-edge
- * (transparent-card treatment, like Hermes). On hover the plate zooms slightly
- * and parallax-pans toward the cursor, giving the "living image" motion; it
- * eases back to the shared grid alignment on leave. Reduced motion opts out.
+ * One quadrant of the winged-Icarus engraving sits directly on the folio page —
+ * no blue field, no card fill. The four quadrants (`icarus-divide-1…4`) are
+ * anchored toward the grid centre so the pale blueprint figure reassembles
+ * unbroken across the seams and reads as one continuous plate. The plate holds a
+ * flat 40% opacity so the pale engraving recedes evenly behind the ink copy
+ * while staying airy — no base scrim.
  *
- * `art` carries the shared-background size/position classes so the plate stays
- * one continuous engraving across the 2×2 grid.
+ * Hover lights the frame rather than zooming: the four sides and the blueprint
+ * corner marks flare to cerulean — a light-emitting motif, not a depth
+ * affordance. Pure CSS group-hover, so it degrades to an instant state change
+ * under reduced motion.
  */
 export function ServiceCardArt({
   image,
-  art,
+  alt,
+  position,
   children,
 }: {
   image: string;
-  art: string;
+  alt: string;
+  /** object-position classes anchoring the quadrant toward the grid centre. */
+  position: string;
   children: React.ReactNode;
 }) {
-  const artRef = useRef<HTMLDivElement>(null);
-  const raf = useRef(0);
-
-  function handleMove(e: React.MouseEvent<HTMLDivElement>) {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const px = (e.clientX - rect.left) / rect.width - 0.5;
-    const py = (e.clientY - rect.top) / rect.height - 0.5;
-    cancelAnimationFrame(raf.current);
-    raf.current = requestAnimationFrame(() => {
-      const el = artRef.current;
-      if (el) {
-        el.style.transform = `scale(1.1) translate3d(${px * -16}px, ${py * -16}px, 0)`;
-      }
-    });
-  }
-
-  function handleLeave() {
-    cancelAnimationFrame(raf.current);
-    const el = artRef.current;
-    if (el) el.style.transform = "scale(1) translate3d(0, 0, 0)";
-  }
-
   return (
-    <div
-      className="relative flex flex-1 flex-col justify-end"
-      onMouseMove={handleMove}
-      onMouseLeave={handleLeave}
-    >
-      {/* bright blue field */}
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-[linear-gradient(160deg,#0d86d2_0%,#0074c2_55%,#0468a8_100%)]"
-      />
-      {/* duotone engraving — one plate spanning the whole grid */}
-      <div
-        ref={artRef}
-        aria-hidden
-        style={{ backgroundImage: `url(${image})` }}
-        className={`absolute inset-0 bg-no-repeat transition-transform duration-300 ease-out [will-change:transform] ${art}`}
-      />
-      {/* light gradient only at the base so the copy stays legible */}
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-[linear-gradient(to_top,rgba(3,16,30,0.9)_0%,rgba(3,16,30,0.52)_16%,rgba(3,16,30,0.14)_36%,transparent_54%)]"
+    <div className="group relative flex flex-1 flex-col">
+      {/* this card's quadrant of the engraving (transparent plate on folio) */}
+      <Image
+        src={image}
+        alt={alt}
+        fill
+        sizes="(min-width: 1152px) 560px, (min-width: 640px) 46vw, 92vw"
+        className={`object-cover opacity-15 ${position}`}
       />
 
-      <div className="relative p-7 [text-shadow:0_1px_12px_rgba(2,13,25,0.6)] sm:p-8">
-        {children}
-      </div>
+      {/* hover: the four sides light up */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 border border-transparent transition-[border-color,box-shadow] duration-500 ease-out group-hover:border-blueprint-deep/45 group-hover:shadow-[inset_0_0_40px_-12px_rgba(0,157,255,0.45)]"
+      />
+      {/* hover: the corner marks flare (blueprint registration marks) */}
+      <CornerMarks />
+
+      <div className="relative flex flex-1 flex-col p-7 sm:p-8">{children}</div>
+    </div>
+  );
+}
+
+const cornerBase =
+  "pointer-events-none absolute size-5 border-ink/12 transition-all duration-500 ease-out group-hover:border-blueprint-deep group-hover:[filter:drop-shadow(0_0_6px_rgba(0,157,255,0.6))]";
+
+function CornerMarks() {
+  return (
+    <div aria-hidden>
+      <span className={`${cornerBase} left-3.5 top-3.5 border-l border-t`} />
+      <span className={`${cornerBase} right-3.5 top-3.5 border-r border-t`} />
+      <span className={`${cornerBase} bottom-3.5 left-3.5 border-b border-l`} />
+      <span className={`${cornerBase} right-3.5 bottom-3.5 border-r border-b`} />
     </div>
   );
 }
