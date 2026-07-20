@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Dependency constraints
+
+- **Do NOT use or install `gsap`** (or its plugins: ScrollTrigger, MotionPathPlugin, etc.). It will never be added to this project. The former `IcarusFlight` component that depended on it has been removed. For any animation, use the already-installed `motion` package (Framer Motion, imported from `motion/react`) plus CSS. Note: `components/greek/icarus-glyph.tsx` is now unused — reuse or delete as needed.
+
 ## Picking the right models for workflows and subagents
  
 Rankings, higher = better. Cost = what you actually pay, not list price. Intelligence = how hard a problem you can hand the model unsupervised. Taste = UI/UX, code quality, API design, copy.
