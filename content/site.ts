@@ -59,24 +59,36 @@ export const processSteps = [
   {
     numeral: "I",
     title: "Discover",
+    headline: "Find the updraft",
+    image: "/assets/icarus-step/icarus-1.png",
+    alt: "Daedalus fitting Icarus with hand-built wings — the blueprint drawn before the flight",
     description:
       "A free demo and consultation. We map the repetitive work, bottlenecks, and systems slowing you down.",
   },
   {
     numeral: "II",
     title: "Build",
+    headline: "Forge the wings",
+    image: "/assets/icarus-step/icarus-2.png",
+    alt: "Icarus poised at the cliff's edge, wings fully spread, in the moment before launch",
     description:
       "We design and build your automation, system, or device, with your feedback in the loop at every step.",
   },
   {
     numeral: "III",
     title: "Launch",
+    headline: "Take to the sky",
+    image: "/assets/icarus-step/icarus-3.png",
+    alt: "Icarus in open flight, wings caught full in the updraft",
     description:
       "We deploy, integrate hardware, migrate data, and train your team until everything runs on its own.",
   },
   {
     numeral: "IV",
     title: "Support",
+    headline: "Sustain the flight",
+    image: "/assets/icarus-step/icarus-4.png",
+    alt: "Icarus climbing steadily skyward, wings holding a sustained ascent",
     description:
       "We stay with you: monitoring, changes, and new requests as your business grows.",
   },
