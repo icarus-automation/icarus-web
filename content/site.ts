@@ -96,43 +96,9 @@ export const processSteps = [
   },
 ] as const;
 
-// Logos are pre-normalized (see scripts/normalize-logos.mjs): backgrounds
-// stripped to transparent + baked to one optical weight on a common height,
-// so the strip renders as a single even ink tone with no color standouts.
-// w/h are each file's intrinsic pixel size (all share height 200).
-export const clients = [
-  {
-    name: "LTHMI",
-    logo: "/assets/trusted-by/lthmi.png",
-    w: 222,
-    h: 200,
-  },
-  {
-    name: "Rapido Motorsiklo Garage",
-    logo: "/assets/trusted-by/rapido-motorsiklo-garage.png",
-    w: 251,
-    h: 200,
-  },
-  {
-    name: "Richmond Square",
-    logo: "/assets/trusted-by/richmond-square.png",
-    w: 217,
-    h: 200,
-  },
-  {
-    name: "Lugaw Juan",
-    logo: "/assets/trusted-by/lugawjuan.png",
-    w: 192,
-    h: 200,
-  },
-  {
-    name: "Topwin",
-    logo: "/assets/trusted-by/topwin.png",
-    w: 202,
-    h: 200,
-  },
-  // { name: "Chu Gas Corp.", logo: null },
-] as const;
+// Logos are pre-normalized and this list is generated — edit scripts/logos.json
+// and run `npm run logos`, not the output. See scripts/normalize-logos.mjs.
+export { clients } from "./clients.generated";
 
 export const faqs = [
   {

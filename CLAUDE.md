@@ -6,6 +6,35 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - **Do NOT use or install `gsap`** (or its plugins: ScrollTrigger, MotionPathPlugin, etc.). It will never be added to this project. The former `IcarusFlight` component that depended on it has been removed. For any animation, use the already-installed `motion` package (Framer Motion, imported from `motion/react`) plus CSS. Note: `components/greek/icarus-glyph.tsx` is now unused — reuse or delete as needed.
 
+## Typography
+
+Locked decision: **Maglite** (display, local file in `app/fonts/`) + **Inter** (body, Google
+Fonts, unchanged). Replaces Marcellus. Not yet applied — read `docs/typography.md` before
+touching fonts.
+
+Standing rules once live:
+
+- **Maglite is display only, one weight.** Never pair `font-display` with `font-bold` /
+  `font-semibold`, and never use it for body, buttons, or labels.
+- **Maglite has no `₱`.** Don't put a peso sign in a `font-display` element.
+- Sonar Sans was rejected. `app/fonts/Sonar-Regular.otf` is unused.
+
+## Adding a "Trusted by" client logo
+
+No code change needed — the strip is generated.
+
+1. Drop the raw logo at `scripts/logo-sources/<slug>.png` (any size, any background).
+2. Add one line to `scripts/logos.json`: `{ "slug": "<slug>", "name": "Display Name" }`.
+3. `npm run logos`.
+
+That keys out the background, re-inks reverse (white-on-dark) logos to their brand
+colour, and rewrites `content/clients.generated.ts` with correct dimensions.
+Never hand-edit `content/clients.generated.ts` or the files in `public/assets/trusted-by/`.
+
+If a logo comes out wrong, add an override to its `logos.json` entry:
+`opticalH` (make it smaller/larger in the row), `mode` (`"flood"` | `"gradient"` |
+`"none"`), `bg` + `tol` (flood seed colour), `ink` (re-ink colour).
+
 ## Picking the right models for workflows and subagents
  
 Rankings, higher = better. Cost = what you actually pay, not list price. Intelligence = how hard a problem you can hand the model unsupervised. Taste = UI/UX, code quality, API design, copy.

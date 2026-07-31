@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "lthmi",
+    "name": "LTHMI",
+    "mode": "flood",
+    "bg": [255, 255, 255],
+    "tol": 40,
+    "opticalH": 172
+  },
+  {
+    "slug": "rapido-motorsiklo-garage",
+    "name": "Rapido Motorsiklo Garage",
+    "mode": "flood",
+    "bg": [189, 8, 10],
+    "tol": 70,
+    "opticalH": 150
+  },
+  {
+    "slug": "richmond-square",
+    "name": "Richmond Square",
+    "mode": "none",
+    "opticalH": 166
+  },
+  {
+    "slug": "lugawjuan",
+    "name": "Lugaw Juan",
+    "mode": "flood",
+    "bg": [250, 243, 233],
+    "tol": 38,
+    "opticalH": 154
+  },
+  {
+    "slug": "topwin",
+    "name": "Topwin",
+    "mode": "none",
+    "opticalH": 150
+  },
+  {
+    "slug": "rcdc",
+    "name": "RCDC Property Management"
+  }
+]
