@@ -20,7 +20,9 @@ export const site = {
 export const nav = [
   { label: "Home", href: "/" },
   { label: "Solutions", href: "/solutions" },
+  { label: "Philosophy", href: "/philosophy" },
   { label: "Success Stories", href: "/success-stories" },
+  { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
@@ -132,57 +134,51 @@ export const clients = [
   // { name: "Chu Gas Corp.", logo: null },
 ] as const;
 
-// Weight over volume (PRODUCT.md principle 4): named, verifiable facts — no generic counters
-export const proofPoints = [
+export const faqs = [
   {
-    fact: "12+ systems shipped",
-    detail:
-      "Automations, web systems, and devices — built, launched, and still running for the businesses that ordered them.",
-    certificate: null,
+    question: "How much does it cost?",
+    answer:
+      "It depends on what you need — but we build for real budgets, not enterprise ones. Keep Inv, our ready-made POS and inventory app, is ₱1,299 for lifetime access. Custom work is priced around the manual tasks it takes off your plate, and every free demo ends with a clear quote and no obligation.",
   },
   {
-    fact: "Keep Inv is live in the market",
-    detail:
-      "Our POS & inventory platform rings up real sales and audits real stockrooms in Philippine businesses today.",
-    certificate: null,
+    question: "How soon can it go live?",
+    answer:
+      "Simple automations can be up and running in a few days. Bigger custom systems usually take a few weeks, depending on how much is involved. We’ll set a realistic timeline together on the first call — no vague “soon.”",
   },
   {
-    fact: "DTI-registered business",
-    detail:
-      "Icarus.Automation is registered with the Department of Trade and Industry.",
-    certificate: "/BNRS_Certificate.pdf",
+    question: "Do you supply the hardware too?",
+    answer:
+      "Yes. Receipt and label printers, barcode scanners, handheld RFID readers — we source the right kit for your budget and set it all up so it works from day one.",
+  },
+  {
+    question: "Where do you work?",
+    answer:
+      "We’re based in the Philippines and take on businesses anywhere in the country. For hardware setups we come on-site; everything else we handle remotely, so distance is rarely a problem.",
+  },
+  {
+    question: "What happens after launch?",
+    answer:
+      "We stick around. Monitoring, fixes, small tweaks, and new requests as you grow — support isn’t a separate contract you have to chase, it’s just part of how we work.",
   },
 ] as const;
 
-export const faqs = [
-  {
-    question: "How much does a project cost?",
-    answer:
-      "It depends on scope, but we build for tight budgets. Keep Inv starts at ₱1,299 for lifetime access, and automations are priced by the workflows we replace. The free demo includes a clear quote with no obligation.",
-  },
-  {
-    question: "How long does it take to launch?",
-    answer:
-      "Simple automations ship in days. Custom systems and integrations typically take a few weeks depending on complexity. We set a timeline together during the discovery call.",
-  },
-  {
-    question: "Do you provide the hardware too?",
-    answer:
-      "Yes. Receipt printers, label printers, barcode scanners, and handheld RFID readers. We supply device packages matched to your budget and set everything up.",
-  },
-  {
-    question: "Where do you operate?",
-    answer:
-      "We're based in the Philippines and serve businesses nationwide. On-site setup is available for hardware deployments, and everything else we handle remotely.",
-  },
-  {
-    question: "Do you support us after launch?",
-    answer:
-      "Always. Support is part of our process: monitoring, fixes, and improvements continue after deployment so your systems never fall behind.",
-  },
-  {
-    question: "We're a small business. Is this really for us?",
-    answer:
-      "That's exactly who we build for. We put the systems big companies run within reach of small businesses, without cutting corners.",
-  },
-] as const;
+export const philosophy = {
+  kicker: "Licensed, not subscribed",
+  title: "Our Philosophy",
+  lead: "Businesses shouldn't have to subscribe forever to use great software.",
+  body: "Great automation shouldn't require endless monthly payments. We keep pricing simple with a one-time license and no recurring subscription fees.",
+  contrast:
+    "Every subscription is a bill that never ends. A one-time license is a line that goes flat. The longer you run, the wider the gap, and it always falls in your favor.",
+  legend: [
+    {
+      tone: "muted",
+      label: "Subscription",
+      note: "Pay every month. Stop paying, lose access.",
+    },
+    {
+      tone: "brand",
+      label: "One-time license",
+      note: "Pay once. It's yours to keep.",
+    },
+  ],
+} as const;

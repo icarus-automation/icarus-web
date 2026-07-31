@@ -28,7 +28,7 @@ export function Navbar() {
     if (!open) return;
     document.documentElement.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
-    const mq = window.matchMedia("(min-width: 768px)");
+    const mq = window.matchMedia("(min-width: 1024px)");
     const onChange = (e: MediaQueryListEvent) => e.matches && setOpen(false);
     window.addEventListener("keydown", onKey);
     mq.addEventListener("change", onChange);
@@ -60,7 +60,7 @@ export function Navbar() {
           Icarus<span className="text-blueprint-deep">.Automation</span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
           {nav.map((item) => (
             <Link
               key={item.href}
@@ -77,14 +77,14 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <Button href={site.cta.href} size="sm">
             {site.cta.label}
           </Button>
         </div>
 
         <button
-          className="flex size-10 items-center justify-center rounded-sm text-ink md:hidden"
+          className="flex size-10 items-center justify-center rounded-sm text-ink lg:hidden"
           onClick={() => setOpen(true)}
           aria-expanded={open}
           aria-label="Open menu"
@@ -104,7 +104,7 @@ export function Navbar() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
               onClick={() => setOpen(false)}
-              className="fixed inset-0 z-[70] bg-ink/50 md:hidden"
+              className="fixed inset-0 z-[70] bg-ink/50 lg:hidden"
             />
             <motion.div
               role="dialog"
@@ -114,7 +114,7 @@ export function Navbar() {
               animate={reduceMotion ? { opacity: 1 } : { x: 0 }}
               exit={reduceMotion ? { opacity: 0 } : { x: "100%" }}
               transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="fixed inset-y-0 right-0 z-[80] flex w-[82%] max-w-sm flex-col border-l border-ruling bg-folio md:hidden"
+              className="fixed inset-y-0 right-0 z-[80] flex w-[82%] max-w-sm flex-col border-l border-ruling bg-folio lg:hidden"
             >
               <div className="flex items-center justify-between border-b border-ruling px-6 py-4">
                 <p className="text-xs font-semibold tracking-[0.25em] text-ink uppercase">
