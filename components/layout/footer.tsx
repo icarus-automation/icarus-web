@@ -52,6 +52,14 @@ export function Footer() {
               ))}
               <li>
                 <Link
+                  href="/solutions/lease-linq"
+                  className="text-sm text-white/70 transition-colors hover:text-white"
+                >
+                  Lease Linq
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/solutions/keepinv"
                   className="text-sm text-white/70 transition-colors hover:text-white"
                 >
