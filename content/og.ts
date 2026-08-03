@@ -31,6 +31,15 @@ export const ogCards = {
     cta: "See our solutions",
   },
 
+  // Problem-led, matching how the hub card frames it in content/solutions.ts.
+  // No price in the sub: Lease Linq is in development and deliberately has no
+  // public pricing.
+  leaselinq: {
+    kicker: "Lease Linq · Real-Estate Operations",
+    lines: ["Property run on", { text: "spreadsheets?", accent: true }],
+    sub: "Units, tenants, leases, parking and revenue in one system. In development — book an early demo.",
+  },
+
   keepinv: {
     kicker: "Keep Inv · Inventory & POS",
     lines: ["Audit a warehouse", { text: "in seconds.", accent: true }],

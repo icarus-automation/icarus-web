@@ -12,6 +12,7 @@ import { site } from "@/content/site";
 const routes = [
   { path: "", changeFrequency: "weekly", priority: 1 },
   { path: "/solutions/keepinv", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/solutions/lease-linq", changeFrequency: "weekly", priority: 0.9 },
   { path: "/solutions", changeFrequency: "monthly", priority: 0.8 },
   { path: "/contact", changeFrequency: "monthly", priority: 0.8 },
   { path: "/faq", changeFrequency: "monthly", priority: 0.7 },
