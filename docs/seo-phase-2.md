@@ -29,8 +29,8 @@ the others.
 - **`openGraph` does not merge.** Next replaces the whole field, so a page declaring its
   own inline loses `og:site_name`, `og:type` and `og:locale`. Always go through
   `pageOpenGraph()` in `lib/seo.ts`. This was a live bug in Phase 1; don't reintroduce it.
-- **Maglite has no `₱` glyph.** Prices go in Inter — in the OG cards that means the `sub`
-  field, never `lines`.
+- **The card display face has no `₱` glyph.** Prices go in Inter — in the OG cards that
+  means the `sub` field, never `lines`.
 - **OG headline lines are authored breaks, not wrapped.** Keep each under ~18 characters
   to hold the largest size. `headlineSize()` in `lib/og.tsx` steps the type down past
   that so a long line can't collide with the emblem, but the card looks weaker.
@@ -45,12 +45,16 @@ the others.
   flag; `lib/schema.ts` drops those from the `Offer` list. Google will print a price it
   finds in structured data.
 
-### Known inconsistency
+### Typography note
 
-The OG cards are set in **Maglite**, but the site still renders **Marcellus** — the
-typography migration in `docs/typography.md` is a locked decision that hasn't been
-applied. Someone clicking from Facebook sees a different display face than the card.
-Not urgent, but applying `docs/typography.md` closes it.
+The cards are set in **Marcellus**, matching what the site renders today, so a click
+from Facebook lands on the same display face it promised.
+
+`docs/typography.md` still records **Maglite** as the locked decision for the site, and
+that migration has not been applied. If it ever is, switch the cards over with it — the
+font is loaded in `lib/og.tsx` from `app/fonts/`, and `headlineSize()` will need
+recalibrating, since Maglite runs about 6% narrower per em than Marcellus and its
+buckets would then be sizing text smaller than it needs to be.
 
 ---
 

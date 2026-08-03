@@ -49,7 +49,15 @@ Social cards are generated, not designed by hand:
   Next renders them at build time, so they cost nothing at request time.
 - Headline lines are authored breaks, not wrapped. Keep lines under ~18 characters;
   past that `lib/og.tsx` steps the type size down so it can't collide with the emblem.
-- Maglite has no `₱`. Prices go in `sub`, which is Inter.
+- **Cards are set in Marcellus, not Maglite** — they match what the site renders today.
+  The Maglite decision in *Typography* above still stands for the site itself; it just
+  hasn't been applied, and the cards are not waiting on it.
+- The display face has no `₱`. Prices go in `sub`, which is Inter.
+- The logo is `public/assets/brand-logo-white.png` — a finished lockup, wordmark and
+  mark together, so nothing is set in type beside it. It is white on transparent and
+  needs no keying. If it's ever replaced, take the new aspect ratio from the
+  `npm run og` output and update `LOGO_RATIO` in `lib/og.tsx`, or it will render
+  stretched.
 
 Page metadata must build its `openGraph` through `pageOpenGraph()` in `lib/seo.ts`.
 Next replaces the whole `openGraph` field rather than merging it, so a page that
@@ -65,10 +73,13 @@ appears in the footer and on `/contact`.
 
 - `public/assets/og.png` (4800×2700) → `public/assets/og/canvas.jpg`, the 1200×630 plate
   the cards are composed on.
+- `public/assets/brand-logo-white.png` → `public/assets/og/logo.png`, the lockup on the
+  cards. Trim and resize only; it is already white on transparent.
 - `public/assets/icarus-socials-pfp.png` → `app/icon.png`, `app/apple-icon.png`,
-  `app/favicon.ico`.
-- Inter TrueType into `app/fonts/` (Satori cannot read woff2, and `next/font` exposes
-  nothing to it).
+  `app/favicon.ico`. The portrait mark, not the wide lockup — a wordmark does not
+  survive a 16px square.
+- Inter and Marcellus TrueType into `app/fonts/` (Satori cannot read woff2, and
+  `next/font` exposes nothing to it).
 
 Outputs are committed. Only re-run it when one of those sources changes.
 

@@ -12,16 +12,13 @@ import type { OgCard } from "@/lib/og";
  *     largest type size; lib/og.tsx steps the size down past that rather than
  *     letting a line collide with the emblem.
  *   - The second line carries the blueprint accent, so put the payoff there.
- *   - Maglite has no peso glyph. Prices belong in `sub`, which is set in Inter.
+ *   - The display face has no peso glyph. Prices belong in `sub`, set in Inter.
  *   - `sub` earns the click the headline won — concrete, under ~110 characters.
  */
 export const ogCards = {
   home: {
     kicker: "Automation · Custom Systems · IoT",
-    // "Automation works" over "Automation that works" only to keep both lines
-    // inside 18 characters, which holds the larger type size — the card is read
-    // at thumbnail size in Messenger and Viber more often than at full size.
-    lines: ["Automation works", { text: "as hard as you do.", accent: true }],
+    lines: ["Automation that works", { text: "as hard as you do.", accent: true }],
     // The turn: matching the owner's effort is the warm half of the promise,
     // never clocking out is the half they can't do themselves.
     sub: "And it never clocks out. Enterprise-grade automation, systems and IoT, without the enterprise price.",

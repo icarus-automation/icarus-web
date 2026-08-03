@@ -47,8 +47,8 @@ const asset = (relativePath: string) => new URL(relativePath, import.meta.url);
 // Read once per build rather than once per card.
 let cache: {
   canvas: string;
-  mark: string;
-  maglite: ArrayBuffer;
+  logo: string;
+  display: ArrayBuffer;
   inter: ArrayBuffer;
   interSemi: ArrayBuffer;
 } | null = null;
@@ -56,20 +56,20 @@ let cache: {
 async function load() {
   if (cache) return cache;
 
-  const [canvas, mark, maglite, inter, interSemi] = await Promise.all([
+  const [canvas, logo, display, inter, interSemi] = await Promise.all([
     readFile(asset("../public/assets/og/canvas.jpg")),
-    readFile(asset("../public/assets/og/mark.png")),
-    readFile(asset("../app/fonts/Maglite-Regular.ttf")),
+    readFile(asset("../public/assets/og/logo.png")),
+    readFile(asset("../app/fonts/Marcellus-Regular.ttf")),
     readFile(asset("../app/fonts/Inter-Regular.ttf")),
     readFile(asset("../app/fonts/Inter-SemiBold.ttf")),
   ]);
 
   cache = {
     canvas: `data:image/jpeg;base64,${canvas.toString("base64")}`,
-    mark: `data:image/png;base64,${mark.toString("base64")}`,
-    maglite: maglite.buffer.slice(
-      maglite.byteOffset,
-      maglite.byteOffset + maglite.byteLength,
+    logo: `data:image/png;base64,${logo.toString("base64")}`,
+    display: display.buffer.slice(
+      display.byteOffset,
+      display.byteOffset + display.byteLength,
     ) as ArrayBuffer,
     inter: inter.buffer.slice(
       inter.byteOffset,
@@ -98,10 +98,22 @@ export type OgLine = string | { text: string; accent: true };
 const TEXT_WIDTH = 720;
 
 /**
+ * The supplied logo's trimmed aspect ratio, printed by `npm run og`. If the
+ * artwork is ever replaced, take the new ratio from that output — hard-coding
+ * a square here would squash the wordmark.
+ */
+const LOGO_RATIO = 2.707;
+const LOGO_HEIGHT = 62;
+
+/**
  * Satori neither shrinks text to fit nor reports overflow — a headline that is
- * too wide silently re-wraps and collides with the emblem. Sizing off the
- * longest line keeps every card intentional no matter what copy it is given.
- * Buckets are calibrated against Maglite's average advance width (~0.44em).
+ * too wide just runs on under the emblem. Sizing off the longest line keeps
+ * every card intentional no matter what copy it is given.
+ *
+ * Calibrated by measuring rendered cards: Marcellus averages ~0.50em per
+ * character, and the headline starts at the 72px pad with the emblem's leading
+ * wingtip at ~850px, so a line has ~778px to live in. Each bucket is the
+ * largest size that keeps its character count inside that.
  */
 function headlineSize(lines: readonly OgLine[]) {
   const longest = Math.max(
@@ -110,7 +122,7 @@ function headlineSize(lines: readonly OgLine[]) {
   if (longest <= 14) return 92;
   if (longest <= 18) return 82;
   if (longest <= 22) return 70;
-  if (longest <= 27) return 58;
+  if (longest <= 27) return 56;
   return 50;
 }
 
@@ -122,7 +134,7 @@ export type OgCard = {
    * than wrapped so the shape is identical on every card, and so an accented
    * line can carry its own colour without inline spans.
    *
-   * Maglite has no peso glyph — keep prices in `sub`, which is Inter.
+   * The display face has no peso glyph — keep prices in `sub`, which is Inter.
    */
   lines: readonly OgLine[];
   /** One supporting sentence. Keep it under ~110 characters. */
@@ -132,7 +144,7 @@ export type OgCard = {
 };
 
 export async function renderOgCard({ kicker, lines, sub, cta }: OgCard) {
-  const { canvas, mark, maglite, inter, interSemi } = await load();
+  const { canvas, logo, display, inter, interSemi } = await load();
   const fontSize = headlineSize(lines);
 
   return new ImageResponse(
@@ -180,19 +192,11 @@ export async function renderOgCard({ kicker, lines, sub, cta }: OgCard) {
             padding: "54px 0 64px 72px",
           }}
         >
-          {/* Lockup: the official mark — the same asset the root layout
-              declares as the organisation logo — beside the name, split the way
-              the site navbar and footer split it. Maglite goes hairline-thin
-              under ~24px, so the name sits at 28. */}
-          <div style={{ display: "flex", alignItems: "center", gap: 15 }}>
-            <img src={mark} width={58} height={58} />
-            <div
-              style={{ display: "flex", fontFamily: "Maglite", fontSize: 28, color: PAPER }}
-            >
-              <div style={{ display: "flex" }}>Icarus</div>
-              <div style={{ display: "flex", color: BLUEPRINT_LIFTED }}>.Automation</div>
-            </div>
-          </div>
+          {/* The official logo, as supplied. It is a complete lockup — wordmark
+              plus mark — so nothing is set in type beside it. Width is derived
+              from the trimmed aspect ratio that `npm run og` prints, so the
+              artwork is never stretched. */}
+          <img src={logo} width={Math.round(LOGO_HEIGHT * LOGO_RATIO)} height={LOGO_HEIGHT} />
 
           <div style={{ display: "flex", flexDirection: "column", maxWidth: TEXT_WIDTH }}>
             <div
@@ -216,7 +220,7 @@ export async function renderOgCard({ kicker, lines, sub, cta }: OgCard) {
                 display: "flex",
                 flexDirection: "column",
                 marginTop: 22,
-                fontFamily: "Maglite",
+                fontFamily: "Marcellus",
                 fontSize,
                 lineHeight: 1.08,
                 color: PAPER,
@@ -293,7 +297,7 @@ export async function renderOgCard({ kicker, lines, sub, cta }: OgCard) {
       width: WIDTH,
       height: HEIGHT,
       fonts: [
-        { name: "Maglite", data: maglite, weight: 400, style: "normal" },
+        { name: "Marcellus", data: display, weight: 400, style: "normal" },
         { name: "Inter", data: inter, weight: 400, style: "normal" },
         { name: "Inter", data: interSemi, weight: 600, style: "normal" },
       ],
