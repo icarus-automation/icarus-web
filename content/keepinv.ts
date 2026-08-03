@@ -93,6 +93,10 @@ export const keepinvPricing = [
     name: "PRO + Devices",
     subtitle: "Software + hardware bundle",
     // TODO: set the real bundle price. ₱4,999 is a visible placeholder.
+    // `provisional` keeps it out of the Offer list in lib/schema.ts — a
+    // placeholder shown on the page is a caveat, but the same number published
+    // as structured data is a price Google can print in a search result.
+    provisional: true,
     price: "₱4,999",
     period: "one-time bundle",
     description:

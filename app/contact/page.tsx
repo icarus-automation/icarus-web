@@ -1,17 +1,26 @@
 import type { Metadata } from "next";
-import { Mail, Clock } from "lucide-react";
+import { Mail, Clock, Phone } from "lucide-react";
 import { FacebookIcon } from "@/components/icons/facebook";
 import { site } from "@/content/site";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbs } from "@/lib/schema";
 import { cn } from "@/lib/utils";
+import { pageOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Book a Free Demo",
   description:
-    "Book a free demo with Icarus.Automation. Automation, custom systems, IoT, and POS & inventory for Philippine businesses.",
+    "Book a free 30-minute demo with Icarus.Automation — Tagalog or English, no obligation. Automation, custom systems, IoT, and POS & inventory for Philippine businesses.",
   alternates: { canonical: "/contact" },
+  openGraph: pageOpenGraph({
+    title: "Thirty minutes. No obligation.",
+    description:
+      "Book a free demo in Tagalog or English. We map what to automate and send a clear quote.",
+    url: "/contact",
+  }),
 };
 
 const channels = [
@@ -20,6 +29,14 @@ const channels = [
     label: "Email us",
     value: site.email,
     href: `mailto:${site.email}`,
+  },
+  {
+    // Also published as `telephone` in the ProfessionalService schema. Google
+    // wants the number it reads in structured data to be visible on the page.
+    icon: Phone,
+    label: "Call or text",
+    value: site.phoneDisplay,
+    href: `tel:${site.phone}`,
   },
   {
     icon: FacebookIcon,
@@ -38,6 +55,7 @@ const channels = [
 export default function ContactPage() {
   return (
     <section className="marble pt-28 pb-20 sm:pt-36 sm:pb-28">
+      <JsonLd data={breadcrumbs([{ name: "Book a Free Demo", path: "/contact" }])} />
       <Container>
         <SectionHeading
           title="Book your free demo"
@@ -65,7 +83,7 @@ export default function ContactPage() {
             Prefer to reach out directly? These work too.
           </p>
         </Reveal>
-        <Stagger className="mt-5 grid gap-4 sm:grid-cols-3">
+        <Stagger className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {channels.map((channel) => {
             const content = (
               <div

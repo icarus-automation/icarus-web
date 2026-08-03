@@ -4,31 +4,28 @@ import { Container } from "@/components/ui/container";
 import { FaqHero } from "@/components/faq/hero";
 import { FaqAccordion } from "@/components/faq/accordion";
 import { CtaBand } from "@/components/home/cta-band";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbs, faqPageSchema } from "@/lib/schema";
+import { pageOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "FAQ",
+  title: "FAQ — Cost, Timelines & Support",
   description:
-    "Answers to what Philippine business owners ask us first — cost, timelines, hardware, where we work, and support after launch.",
+    "Answers to what Philippine business owners ask us first: how much it costs, how soon it goes live, whether we supply hardware, where we work, and support after launch.",
   alternates: { canonical: "/faq" },
-};
-
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.question,
-    acceptedAnswer: { "@type": "Answer", text: faq.answer },
-  })),
+  openGraph: pageOpenGraph({
+    title: "Straight answers, no vague “soon”",
+    description:
+      "Cost, timelines, hardware, where we work, and what happens after launch.",
+    url: "/faq",
+  }),
 };
 
 export default function FaqPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+      <JsonLd data={faqPageSchema} />
+      <JsonLd data={breadcrumbs([{ name: "FAQ", path: "/faq" }])} />
       <FaqHero />
       <section className="border-t border-ruling py-20 sm:py-28">
         <Container className="max-w-3xl">

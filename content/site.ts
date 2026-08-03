@@ -2,13 +2,26 @@ export const site = {
   // "Icarus Automation" was taken in DTI BNRS; registered name is "Icarus.Automation"
   name: "Icarus.Automation",
   shortName: "Icarus",
-  url: "https://icarusautomation.com",
+  // Canonical origin. Everything SEO-facing derives from this: metadataBase,
+  // canonicals, og:url, sitemap.xml and robots.txt. It must match the property
+  // verified in Google Search Console exactly, including the missing www —
+  // Vercel redirects www to the apex, and a canonical that points at a redirect
+  // wastes crawl budget.
+  url: "https://icarusautomation.tech",
+  // Bare host, for display in social cards and the footer.
+  domain: "icarusautomation.tech",
   tagline: "Automation, custom systems & IoT for Philippine businesses",
   description:
     "Icarus.Automation builds n8n automations, custom web systems, IoT solutions, and affordable POS & inventory software for small businesses, startups, and corporations across the Philippines.",
   email: "acegabriel0809@gmail.com",
   facebook: "https://www.facebook.com/profile.php?id=61582103931111",
+  // E.164 for schema.org and tel: links; the spaced form is for display.
+  phone: "+639917897907",
+  phoneDisplay: "+63 991 789 7907",
   location: "Philippines",
+  city: "Manila",
+  region: "Metro Manila",
+  country: "PH",
   bookingUrl:
     "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1tQxMU1vnxWf0ul9KSINyIZPw6TUURTds81TlWiROjVV2TAW1htKXVemctPRqZi5XszwlQiv1b?gv=true",
   cta: {

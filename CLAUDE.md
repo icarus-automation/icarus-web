@@ -35,6 +35,43 @@ If a logo comes out wrong, add an override to its `logos.json` entry:
 `opticalH` (make it smaller/larger in the row), `mode` (`"flood"` | `"gradient"` |
 `"none"`), `bg` + `tol` (flood seed colour), `ink` (re-ink colour).
 
+## SEO and social cards
+
+`content/site.ts` holds the canonical origin (`site.url`). `metadataBase`, every
+canonical, `og:url`, `sitemap.xml` and `robots.txt` derive from it — change it in one
+place, never inline a URL.
+
+Social cards are generated, not designed by hand:
+
+- **Copy** lives in `content/og.ts`, one entry per route. This is the file to edit when a
+  post underperforms.
+- **Layout** lives in `lib/og.tsx`. Each route's `opengraph-image.tsx` is a thin wrapper.
+  Next renders them at build time, so they cost nothing at request time.
+- Headline lines are authored breaks, not wrapped. Keep lines under ~18 characters;
+  past that `lib/og.tsx` steps the type size down so it can't collide with the emblem.
+- Maglite has no `₱`. Prices go in `sub`, which is Inter.
+
+Page metadata must build its `openGraph` through `pageOpenGraph()` in `lib/seo.ts`.
+Next replaces the whole `openGraph` field rather than merging it, so a page that
+declares one inline silently loses `og:site_name`, `og:type` and `og:locale`.
+
+Structured data lives in `lib/schema.ts` and renders through `components/seo/json-ld.tsx`.
+Anything asserted there must also be visible on the page — that is why the phone number
+appears in the footer and on `/contact`.
+
+### Regenerating brand assets
+
+`npm run og` derives, from sources already in the repo:
+
+- `public/assets/og.png` (4800×2700) → `public/assets/og/canvas.jpg`, the 1200×630 plate
+  the cards are composed on.
+- `public/assets/icarus-socials-pfp.png` → `app/icon.png`, `app/apple-icon.png`,
+  `app/favicon.ico`.
+- Inter TrueType into `app/fonts/` (Satori cannot read woff2, and `next/font` exposes
+  nothing to it).
+
+Outputs are committed. Only re-run it when one of those sources changes.
+
 ## Picking the right models for workflows and subagents
  
 Rankings, higher = better. Cost = what you actually pay, not list price. Intelligence = how hard a problem you can hand the model unsupervised. Taste = UI/UX, code quality, API design, copy.

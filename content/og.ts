@@ -1,0 +1,68 @@
+import type { OgCard } from "@/lib/og";
+
+/**
+ * Copy for the social cards, keyed by route. The layout lives in lib/og.tsx;
+ * this is the part worth rewriting when a post underperforms.
+ *
+ * Writing rules, learned from how these actually get seen:
+ *
+ *   - Messenger and Viber render the card small. The headline has to land at
+ *     thumbnail size, so it is two short lines, not one long one.
+ *   - Line breaks are authored. Keep each line under ~18 characters to hold the
+ *     largest type size; lib/og.tsx steps the size down past that rather than
+ *     letting a line collide with the emblem.
+ *   - The second line carries the blueprint accent, so put the payoff there.
+ *   - Maglite has no peso glyph. Prices belong in `sub`, which is set in Inter.
+ *   - `sub` earns the click the headline won — concrete, under ~110 characters.
+ */
+export const ogCards = {
+  home: {
+    kicker: "Automation · Custom Systems · IoT",
+    lines: ["Let your business", { text: "fly on autopilot.", accent: true }],
+    // Comma, not an em dash: the line breaks after "IoT" and a dash would be
+    // left orphaned at the start of line two.
+    sub: "Enterprise-grade automation, custom systems and IoT, without the enterprise price tag.",
+  },
+
+  solutions: {
+    kicker: "Solutions",
+    lines: ["Real software,", { text: "already shipped.", accent: true }],
+    sub: "Products and systems live in the market for Philippine businesses — the problem, the build, the price.",
+    cta: "See our solutions",
+  },
+
+  keepinv: {
+    kicker: "Keep Inv · Inventory & POS",
+    lines: ["Audit a warehouse", { text: "in seconds.", accent: true }],
+    sub: "RFID inventory and POS from ₱1,299 lifetime. One payment, no subscription, hardware included.",
+    cta: "See Keep Inv",
+  },
+
+  philosophy: {
+    kicker: "Licensed, not subscribed",
+    lines: ["Pay once.", { text: "It's yours to keep.", accent: true }],
+    sub: "Every subscription is a bill that never ends. We price software as a one-time licence instead.",
+    cta: "Read our philosophy",
+  },
+
+  faq: {
+    kicker: "Frequently asked",
+    lines: ["Straight answers,", { text: "no vague “soon.”", accent: true }],
+    sub: "Cost, timelines, hardware, where we work, and what happens after launch.",
+    cta: "Read the FAQ",
+  },
+
+  contact: {
+    kicker: "Free demo · 30 minutes",
+    lines: ["Thirty minutes.", { text: "No obligation.", accent: true }],
+    sub: "Book a free demo in Tagalog or English. We map what to automate and send a clear quote.",
+    cta: "Pick a time",
+  },
+
+  successStories: {
+    kicker: "Success stories",
+    lines: ["Businesses", { text: "already in flight.", accent: true }],
+    sub: "We're documenting what our clients built with us. The first stories land here soon.",
+    cta: "Book a Free Demo",
+  },
+} as const satisfies Record<string, OgCard>;

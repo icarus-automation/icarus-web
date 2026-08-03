@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "logos": "node scripts/normalize-logos.mjs"
+    "logos": "node scripts/normalize-logos.mjs",
+    "og": "node scripts/prepare-og.mjs"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

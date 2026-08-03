@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FileCheck, Mail, MapPin } from "lucide-react";
+import { FileCheck, Mail, MapPin, Phone } from "lucide-react";
 import { FacebookIcon } from "@/components/icons/facebook";
 import { nav, site } from "@/content/site";
 import { Container } from "@/components/ui/container";
@@ -20,9 +20,11 @@ export function Footer() {
               Automation, custom systems, IoT, and affordable POS &amp;
               inventory for Philippine businesses.
             </p>
+            {/* Locality is named rather than just "the Philippines" so the
+                visible text matches the PostalAddress in the schema graph. */}
             <p className="mt-3 flex items-center gap-2 text-sm text-white/60">
               <MapPin className="size-4 text-blueprint" />
-              Based in the Philippines, serving businesses nationwide
+              Based in {site.city}, {site.location} — serving businesses nationwide
             </p>
             <a
               href="/BNRS_Certificate.pdf"
@@ -73,6 +75,15 @@ export function Footer() {
                 >
                   <Mail className="size-4 text-blueprint" />
                   {site.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${site.phone}`}
+                  className="inline-flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-white"
+                >
+                  <Phone className="size-4 text-blueprint" />
+                  {site.phoneDisplay}
                 </a>
               </li>
               <li>

@@ -8,17 +8,27 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { Stagger, StaggerItem } from "@/components/motion/reveal";
 import { CtaBand } from "@/components/home/cta-band";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbs } from "@/lib/schema";
+import { pageOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Solutions",
+  title: "Solutions — Systems We've Shipped",
   description:
-    "Products and systems we've launched for Philippine businesses, starting with Keep Inv, our affordable inventory management and POS platform.",
+    "Products and systems live in the market for Philippine businesses, starting with Keep Inv, our affordable RFID inventory management and POS platform.",
   alternates: { canonical: "/solutions" },
+  openGraph: pageOpenGraph({
+    title: "Real software, already shipped",
+    description:
+      "Products and systems live in the market for Philippine businesses — the problem, the build, and the price.",
+    url: "/solutions",
+  }),
 };
 
 export default function SolutionsPage() {
   return (
     <>
+      <JsonLd data={breadcrumbs([{ name: "Solutions", path: "/solutions" }])} />
       <section className="marble pt-28 pb-16 sm:pt-36 sm:pb-20">
         <Container>
           <SectionHeading

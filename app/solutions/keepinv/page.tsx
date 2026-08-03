@@ -7,22 +7,38 @@ import { KeepInvPricing } from "@/components/keepinv/pricing";
 import { KeepInvTestimonials } from "@/components/keepinv/testimonials";
 import { KeepInvGallery } from "@/components/keepinv/gallery";
 import { CtaBand } from "@/components/home/cta-band";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbs, keepinvSchema } from "@/lib/schema";
+import { pageOpenGraph } from "@/lib/seo";
 
 // This page is the landing target for Facebook/YouTube ads — keep it
 // self-contained with its own metadata and OG data.
 export const metadata: Metadata = {
-  title: "Keep Inv, Affordable Inventory & POS System",
-  description: keepinv.oneLiner,
+  // Leads with the product name and the two terms buyers actually search for.
+  title: "Keep Inv: RFID Inventory & POS System",
+  description:
+    "Affordable inventory management with POS for Philippine businesses. Audit thousands of assets in seconds with RFID. From ₱1,299 lifetime — one payment, no subscription.",
   alternates: { canonical: "/solutions/keepinv" },
-  openGraph: {
-    title: "Keep Inv, Affordable Inventory & POS System",
-    description: keepinv.oneLiner,
-  },
+  openGraph: pageOpenGraph({
+    title: "Audit a warehouse in seconds",
+    description:
+      "RFID inventory and POS from ₱1,299 lifetime. One payment, no subscription, hardware included.",
+    url: "/solutions/keepinv",
+  }),
 };
 
 export default function KeepInvPage() {
   return (
     <>
+      {/* SoftwareApplication with a real Offer per tier — this is the page most
+          likely to earn a price-bearing rich result. */}
+      <JsonLd data={keepinvSchema} />
+      <JsonLd
+        data={breadcrumbs([
+          { name: "Solutions", path: "/solutions" },
+          { name: keepinv.name, path: "/solutions/keepinv" },
+        ])}
+      />
       <KeepInvHero />
       <KeepInvVideo />
       <KeepInvFeatures />
