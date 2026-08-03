@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     // The link title Facebook prints in bold under the card. It is written to
     // be read on its own, so it repeats the promise instead of the brand name —
     // the card image already carries the logo.
-    title: "Let your business fly on autopilot",
+    title: "Automation that works as hard as you do",
     description:
-      "Automation, custom systems and IoT for Philippine businesses. Enterprise capability, without the enterprise price. Free demo, no obligation.",
+      "And it never clocks out. Automation, custom systems and IoT for Philippine businesses — enterprise capability, without the enterprise price. Free demo, no obligation.",
     url: "/",
   }),
 };

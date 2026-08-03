@@ -18,10 +18,13 @@ import type { OgCard } from "@/lib/og";
 export const ogCards = {
   home: {
     kicker: "Automation · Custom Systems · IoT",
-    lines: ["Let your business", { text: "fly on autopilot.", accent: true }],
-    // Comma, not an em dash: the line breaks after "IoT" and a dash would be
-    // left orphaned at the start of line two.
-    sub: "Enterprise-grade automation, custom systems and IoT, without the enterprise price tag.",
+    // "Automation works" over "Automation that works" only to keep both lines
+    // inside 18 characters, which holds the larger type size — the card is read
+    // at thumbnail size in Messenger and Viber more often than at full size.
+    lines: ["Automation works", { text: "as hard as you do.", accent: true }],
+    // The turn: matching the owner's effort is the warm half of the promise,
+    // never clocking out is the half they can't do themselves.
+    sub: "And it never clocks out. Enterprise-grade automation, systems and IoT, without the enterprise price.",
   },
 
   solutions: {

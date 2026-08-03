@@ -47,6 +47,7 @@ const asset = (relativePath: string) => new URL(relativePath, import.meta.url);
 // Read once per build rather than once per card.
 let cache: {
   canvas: string;
+  mark: string;
   maglite: ArrayBuffer;
   inter: ArrayBuffer;
   interSemi: ArrayBuffer;
@@ -55,8 +56,9 @@ let cache: {
 async function load() {
   if (cache) return cache;
 
-  const [canvas, maglite, inter, interSemi] = await Promise.all([
+  const [canvas, mark, maglite, inter, interSemi] = await Promise.all([
     readFile(asset("../public/assets/og/canvas.jpg")),
+    readFile(asset("../public/assets/og/mark.png")),
     readFile(asset("../app/fonts/Maglite-Regular.ttf")),
     readFile(asset("../app/fonts/Inter-Regular.ttf")),
     readFile(asset("../app/fonts/Inter-SemiBold.ttf")),
@@ -64,6 +66,7 @@ async function load() {
 
   cache = {
     canvas: `data:image/jpeg;base64,${canvas.toString("base64")}`,
+    mark: `data:image/png;base64,${mark.toString("base64")}`,
     maglite: maglite.buffer.slice(
       maglite.byteOffset,
       maglite.byteOffset + maglite.byteLength,
@@ -129,7 +132,7 @@ export type OgCard = {
 };
 
 export async function renderOgCard({ kicker, lines, sub, cta }: OgCard) {
-  const { canvas, maglite, inter, interSemi } = await load();
+  const { canvas, mark, maglite, inter, interSemi } = await load();
   const fontSize = headlineSize(lines);
 
   return new ImageResponse(
@@ -177,11 +180,18 @@ export async function renderOgCard({ kicker, lines, sub, cta }: OgCard) {
             padding: "54px 0 64px 72px",
           }}
         >
-          {/* Wordmark, split the way the site footer splits it. Maglite goes
-              hairline-thin under ~24px, so this sits at 28. */}
-          <div style={{ display: "flex", fontFamily: "Maglite", fontSize: 28, color: PAPER }}>
-            <div style={{ display: "flex" }}>Icarus</div>
-            <div style={{ display: "flex", color: BLUEPRINT_LIFTED }}>.Automation</div>
+          {/* Lockup: the official mark — the same asset the root layout
+              declares as the organisation logo — beside the name, split the way
+              the site navbar and footer split it. Maglite goes hairline-thin
+              under ~24px, so the name sits at 28. */}
+          <div style={{ display: "flex", alignItems: "center", gap: 15 }}>
+            <img src={mark} width={58} height={58} />
+            <div
+              style={{ display: "flex", fontFamily: "Maglite", fontSize: 28, color: PAPER }}
+            >
+              <div style={{ display: "flex" }}>Icarus</div>
+              <div style={{ display: "flex", color: BLUEPRINT_LIFTED }}>.Automation</div>
+            </div>
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", maxWidth: TEXT_WIDTH }}>

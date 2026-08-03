@@ -139,6 +139,124 @@ async function buildIcons() {
   );
 }
 
+/**
+ * The official mark, keyed off its white background so it can sit on the dark
+ * social card. This is the same asset app/layout.tsx declares as the
+ * organisation logo (lib/schema.ts -> /icon.png), not a redrawn one.
+ *
+ * Method matches the "gradient" keyer in normalize-logos.mjs: the source is a
+ * mark printed on white, so every pixel reads as `px = a*ink + (1-a)*white`.
+ * The darkest channel gives the strongest estimate of `a`, and the ink colour
+ * falls out by unmixing the white back off. A plain luminance threshold would
+ * instead throw away the pale gilt rays entirely.
+ */
+async function buildMark() {
+  const src = rel("public/assets/icarus-socials-pfp.png");
+  if (!existsSync(src)) {
+    console.warn("skip mark: no icarus-socials-pfp.png");
+    return;
+  }
+
+  const { data, info } = await sharp(src)
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+
+  const { width, height, channels } = info;
+  for (let i = 0; i < width * height * channels; i += channels) {
+    const r = data[i];
+    const g = data[i + 1];
+    const b = data[i + 2];
+
+    const alpha = 1 - Math.min(r, g, b) / 255;
+    if (alpha < 0.06) {
+      data[i + 3] = 0; // paper, not ink
+      continue;
+    }
+
+    // Unmix the white so the colour is the mark's own, not a tint of it.
+    data[i] = Math.max(0, Math.min(255, (r - 255 * (1 - alpha)) / alpha));
+    data[i + 1] = Math.max(0, Math.min(255, (g - 255 * (1 - alpha)) / alpha));
+    data[i + 2] = Math.max(0, Math.min(255, (b - 255 * (1 - alpha)) / alpha));
+    data[i + 3] = Math.round(alpha * 255);
+  }
+
+  // The mark is a blue winged figure inside a ring of gilt sun rays. At the ~60px
+  // it renders in the card the rays collapse into noise and shrink the figure to
+  // an unreadable smudge, so the lockup crops to the figure and lets the rays go.
+  // The figure is the only blue element, which makes it cheap to isolate.
+  // Bounds come from where the blue *mass* is, not from its outermost pixel:
+  // the artwork is a halftone, and a few stray blue specks out among the rays
+  // would otherwise drag an absolute min/max back out to the full frame.
+  const colMass = new Float64Array(width);
+  const rowMass = new Float64Array(height);
+  let total = 0;
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const i = (y * width + x) * channels;
+      if (data[i + 3] < 40) continue;
+      if (data[i + 2] <= data[i] + 25) continue; // not blue-dominant
+      const w = data[i + 3] / 255;
+      colMass[x] += w;
+      rowMass[y] += w;
+      total += w;
+    }
+  }
+
+  /** Range covering the central `keep` fraction of the mass along one axis. */
+  const span = (mass, keep) => {
+    const edge = (total * (1 - keep)) / 2;
+    let acc = 0;
+    let lo = 0;
+    let hi = mass.length - 1;
+    for (let i = 0; i < mass.length; i++) {
+      acc += mass[i];
+      if (acc >= edge) {
+        lo = i;
+        break;
+      }
+    }
+    acc = 0;
+    for (let i = mass.length - 1; i >= 0; i--) {
+      acc += mass[i];
+      if (acc >= edge) {
+        hi = i;
+        break;
+      }
+    }
+    return [lo, hi];
+  };
+
+  const [minX, maxX] = span(colMass, 0.98);
+  const [minY, maxY] = span(rowMass, 0.98);
+
+  // Square the crop off the figure's centre so it never renders stretched, with
+  // a little air so the wingtips do not touch the edge.
+  const cx = (minX + maxX) / 2;
+  const cy = (minY + maxY) / 2;
+  const side = Math.min(
+    Math.round(Math.max(maxX - minX, maxY - minY) * 1.1),
+    Math.min(width, height),
+  );
+  const left = Math.max(0, Math.min(width - side, Math.round(cx - side / 2)));
+  const top = Math.max(0, Math.min(height - side, Math.round(cy - side / 2)));
+
+  await mkdir(rel("public/assets/og"), { recursive: true });
+  const out = rel("public/assets/og/mark.png");
+
+  // Rendered at ~60px in the card; 240 keeps it crisp and costs nothing since
+  // it is inlined once per build.
+  const result = await sharp(data, { raw: { width, height, channels } })
+    .extract({ left, top, width: side, height: side })
+    .resize(240, 240, { fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } })
+    .png({ compressionLevel: 9 })
+    .toFile(out);
+
+  console.log(
+    `mark     ${result.width}x${result.height}      ${(result.size / 1024).toFixed(0)} KB  -> public/assets/og/mark.png`,
+  );
+}
+
 async function buildFonts() {
   await mkdir(rel("app/fonts"), { recursive: true });
 
@@ -202,6 +320,7 @@ async function report() {
 }
 
 await buildCanvas();
+await buildMark();
 await buildIcons();
 await buildFonts();
 await report();
