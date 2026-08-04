@@ -28,7 +28,7 @@ export function KeepInvGallery() {
       <Container>
         <SectionHeading
           title="Keep Inv, out in the field"
-          subtitle="Not mockups — real businesses running their counters and stockrooms on Keep Inv."
+          subtitle="Not mockups. Real businesses running their counters and stockrooms on Keep Inv."
         />
         <Stagger className="mt-12 grid gap-4 lg:grid-cols-[1.6fr_1fr] lg:grid-rows-2">
           {photos.map((photo, i) => (

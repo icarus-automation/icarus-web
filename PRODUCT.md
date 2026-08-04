@@ -21,7 +21,7 @@ Two claims carry the business, confirmed 2026-08-03:
 1. **Enterprise capability at a ₱1,299 entry price.** RFID asset auditing, an integrated POS, and production automations at a price point Philippine SMBs can absorb without financing. The gap between the capability and the number is the offer.
 2. **Real n8n + AI automation depth.** Working AI content pipelines, lead routing, and reporting automations — not the surface-level integrations a general web shop can assemble. This is the technical claim a neighboring agency could not truthfully make.
 
-**Not the positioning:** "Licensed, not subscribed" / one-time lifetime licensing. The business is moving toward recurring revenue to sustain itself. Affordability survives this shift; the anti-subscription framing does not. Future work must not build new argument on it. (See Capabilities and Constraints for the copy this still affects.)
+**Not the positioning, as a company-wide claim:** "Licensed, not subscribed." Revised 2026-08-05 — the move to recurring revenue was dropped for Keep Inv, so lifetime access is durable there and "One payment, no subscription" is now a true, publishable product fact on Keep Inv surfaces. But Lease Linq's pricing model is explicitly undecided, so anti-subscription cannot carry the *business*. Use it as a Keep Inv price fact, not as an Icarus position; do not rebuild `/philosophy` on it. (See Capabilities and Constraints.)
 
 ## Operating Context
 
@@ -37,11 +37,18 @@ Two claims carry the business, confirmed 2026-08-03:
 
 **Keep Inv** — live at `app.keepinv.com` with 2 paying customers. Inventory management with integrated POS and RFID auditing. Current pricing: BASIC ₱1,299 (inventory only), PRO ₱1,499 (inventory + POS), plus hardware bundles and custom change requests (₱650 flat labour + hourly by complexity). The live app is intentionally not linked publicly — prospects would land on a login screen.
 
-**Lease Linq** — a second Icarus-owned SaaS product: property and lease management. In development, not launched. No public page exists yet; do not assert availability, pricing, or features.
+**Lease Linq** — a second Icarus-owned SaaS product: property and lease management (property, tenants, leases, parking, revenue). Still in development: not launched, no public pricing, no live or demo URL, and every deployment is customised to the client. A public marketing page now exists at `/solutions/lease-linq` (content in `content/lease-linq.ts`, wired into `content/solutions.ts` and the sitemap); it is a lead-generation surface whose only CTA is booking a demo. The page's existence is not a launch — do not assert availability, pricing, uptime, or customers.
 
-**Pricing model in transition.** Recurring pricing is being introduced. The current lifetime-access prices above are what is published today, but the model is not settled. Do not treat any specific pricing structure as durable product truth; verify before writing new pricing copy.
+**Pricing — settled for both products, and they differ.** Confirmed 2026-08-05: the shift to recurring revenue was dropped.
 
-**Copy carrying the retired anti-subscription framing** (leave in place until the user asks for a rewrite): the entire `/philosophy` route and `philosophy` object in `content/site.ts`, the "How much does it cost?" FAQ entry, and "One payment, no subscription" in `content/keepinv.ts`.
+- **Keep Inv: lifetime, published.** BASIC ₱1,299, PRO ₱1,499, one payment. Durable product truth; safe to publish and to build argument on.
+- **Lease Linq: custom quote only, never published.** No list price, no tiers, no "starting at" figure — every deployment is scoped to the client, so the price comes out of the meeting. The only path is booking a demo. A published number for Lease Linq is wrong even as a placeholder or a range.
+
+The two models are deliberately different. Do not average them into a single company-wide pricing story, and do not let Keep Inv's lifetime framing leak onto Lease Linq surfaces.
+
+**`/philosophy` — kept as-is by decision, 2026-08-05.** The route and the `philosophy` object in `content/site.ts` argue anti-subscription as a company-wide position, which strictly overreaches Lease Linq's custom-quote model. Reviewed and deliberately left standing; this is a known, accepted overstatement, not an oversight. Do not rewrite, rescope, or retire it unasked. The same applies to the "How much does it cost?" FAQ entry.
+
+"One payment, no subscription" in `content/keepinv.ts` is **not legacy at all** — it is a confirmed Keep Inv fact, safe to keep and to reuse on Keep Inv surfaces.
 
 **Known placeholders in the codebase** (not product facts — never surface them as real): the Keep Inv YouTube video ID (`dQw4w9WgXcQ`), the ₱4,999 "PRO + Devices" bundle price, and the `/blog` and `/success-stories` routes, which are empty `ComingSoon` stubs.
 
@@ -55,9 +62,17 @@ Two claims carry the business, confirmed 2026-08-03:
 
 **The Greek identity is a deliberate differentiator, not decoration.** Classical motifs are intentional marks of craft and quality, not a theme layered on.
 
-**Typography (locked):** Maglite (display, local file in `app/fonts/`) + Inter (body). Read `docs/typography.md` before touching fonts. Sonar Sans was rejected.
+**Typography (locked, not in scope for the rebrand):** Marcellus (display) + Inter (body) + Geist Mono (prices and technical data). Settled — the typefaces do not change. Alternatives were evaluated and rejected; do not reopen the question.
 
-**Assets:** `public/assets/icarus-illustration.png`, `public/assets/icarus-socials-pfp.png`, the four-step flight illustrations in `public/assets/icarus-step/`, and brand references in `docs/brand/`.
+**Logo (final):** `public/assets/brandlogo.png` — a finished lockup: "iCARUS" with a candle-flame dot on the i and a wing forming the terminal S, "AUTOMATION" letterspaced beneath. `public/assets/brand-logo-white.png` is the reverse (white-on-transparent) counterpart already used on social cards. Nothing is set in type beside the lockup. The lockup replaces the typographic logotype in the navbar; body copy, metadata, and titles keep **Icarus.Automation** with the period (the DTI-registered name), so the wordmark and the written name intentionally differ.
+
+**Palette (unchanged):** the existing cerulean-blueprint + gilt system in DESIGN.md stands. A rebrand to Aegean Teal `#306D7E` / Arctic Black `#2E3235` / Burlywood `#D9B88C` was scoped on 2026-08-04 and **rejected** — the current theme stays. Do not re-propose it.
+
+**Ground (the one active visual change):** the flat `folio` page fill becomes a subtle paper-grain texture, referenced by `docs/brand/bg-reference.png` (near-white cotton/cold-press stock). This is a material change to the existing ground, not a new palette — `folio` stays the tone. Implementation must respect the Philippine mid-range-Android bandwidth constraint below: a small seamless tile or CSS-generated grain, not a full-bleed plate per section.
+
+**Assets:** `public/assets/icarus-illustration.png`, `public/assets/icarus-socials-pfp.png`, the four-step flight illustrations in `public/assets/icarus-step/`, and brand references in `docs/brand/`. Product marks: `public/assets/keep-inv-logo.png` (+ `-themed`) and `public/assets/leaselinq/brand-logo.png` — the Lease Linq mark is a raster with a baked dark background and must always sit on a dark (`bg-ink`) surface so the fill reads as deliberate.
+
+**Not yet implemented** (recorded as commitments, absent from the codebase as of 2026-08-05): the paper-grain ground, and the lockup replacing the typographic logotype in the navbar. Neither appears in `app/globals.css` or `components/`.
 
 **Anti-references:**
 
@@ -76,7 +91,7 @@ Two claims carry the business, confirmed 2026-08-03:
 
 **Absences future work must not fabricate:**
 
-- **No testimonials, quotes, or written case studies exist.** None. The dashed placeholder in `components/keepinv/testimonials.tsx` and the empty `/success-stories` route reflect reality, not an oversight.
+- **No usable testimonials, quotes, or written case studies exist.** Confirmed 2026-08-05: clients have given positive feedback *verbally only* — nothing is written down, attributed, or permission-cleared, so none of it is publishable. A verbal report is not a quote; do not paraphrase one into blockquote form. The dashed placeholder in `components/keepinv/testimonials.tsx` and the empty `/success-stories` route reflect reality, not an oversight. Written, attributed, permissioned quotes are the single biggest social-proof unlock available — Principle 4 keeps every testimonial surface blocked until they exist.
 - No press, awards, certifications, benchmark data, uptime figures, or named client results.
 - No customer count, revenue figure, or "hours saved" statistic has been measured. Do not invent stat counters.
 

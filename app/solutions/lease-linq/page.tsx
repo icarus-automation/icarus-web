@@ -14,7 +14,7 @@ import { pageOpenGraph } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Lease Linq: Real-Estate Operations System",
   description:
-    "One system for Philippine property teams — units, tenants, leases, parking and revenue, unified and fitted to how you run. In development; book an early demo.",
+    "One system for Philippine property teams: units, tenants, leases, parking and revenue, unified and fitted to how you run. In development; book an early demo.",
   alternates: { canonical: "/solutions/lease-linq" },
   openGraph: pageOpenGraph({
     title: "Property run on spreadsheets?",
@@ -51,7 +51,7 @@ export default function LeaseLinqPage() {
             Everything under <span className="text-blueprint-deep">one roof</span>
           </>
         }
-        subtitle="The whole property operation, unified — no more spreadsheets and scattered apps."
+        subtitle="The whole property operation, unified. No more spreadsheets and scattered apps."
         items={leaselinqModules}
       />
 
@@ -59,7 +59,7 @@ export default function LeaseLinqPage() {
         <Container>
           <SectionHeading
             title="Fitted to your operation"
-            subtitle="Lease Linq is built around how you run — not forced into a template."
+            subtitle="Lease Linq is built around how you run, not forced into a template."
           />
           <Stagger as="ul" className="mt-12 grid gap-4 sm:grid-cols-3">
             {leaselinqPoints.map((point) => (

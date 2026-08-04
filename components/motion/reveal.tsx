@@ -41,10 +41,13 @@ export function Reveal({
 export function Stagger({
   children,
   className,
+  delay = 0,
   as = "div",
 }: {
   children: React.ReactNode;
   className?: string;
+  /** Lead-in before the first child fires, for rows that trail a heading. */
+  delay?: number;
   as?: "div" | "ul" | "ol";
 }) {
   const Tag = motion[as];
@@ -54,7 +57,7 @@ export function Stagger({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ staggerChildren: 0.1 }}
+      transition={{ staggerChildren: 0.1, delayChildren: delay }}
     >
       {children}
     </Tag>

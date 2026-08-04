@@ -19,7 +19,7 @@ export const leaselinq = {
   logo: "/assets/leaselinq/brand-logo.png",
   status: "In development",
   oneLiner:
-    "Property, tenants, leases, parking, and revenue — run from one system.",
+    "Property, tenants, leases, parking, and revenue, run from one system.",
   description:
     "A single system for real-estate operations. Everything a property team juggles across spreadsheets and apps, unified and shaped to how you actually run.",
 } as const;

@@ -53,7 +53,7 @@ export function Services() {
                 >
                   <div className="flex items-center gap-2.5 text-ink-mid">
                     <Icon className="size-4" strokeWidth={1.75} />
-                    <span className="text-[0.7rem] font-semibold tracking-[0.22em] uppercase">
+                    <span className="text-xs font-semibold tracking-[0.25em] uppercase">
                       {labels[i]}
                     </span>
                   </div>

@@ -24,7 +24,7 @@ export function Footer() {
                 visible text matches the PostalAddress in the schema graph. */}
             <p className="mt-3 flex items-center gap-2 text-sm text-white/60">
               <MapPin className="size-4 text-blueprint" />
-              Based in {site.city}, {site.location} — serving businesses nationwide
+              Based in {site.city}, {site.location}. We work nationwide.
             </p>
             <a
               href="/BNRS_Certificate.pdf"
@@ -33,7 +33,7 @@ export function Footer() {
               className="mt-3 inline-flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-white"
             >
               <FileCheck className="size-4 text-blueprint" />
-              DTI-registered business — view certificate
+              DTI-registered business. View the certificate.
             </a>
           </div>
 

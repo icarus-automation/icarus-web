@@ -16,10 +16,9 @@
  *       The stock create-next-app triangle shipped as app/favicon.ico. Google
  *       renders favicons in mobile results, so the brand mark replaces it.
  *
- *   Google Fonts -> app/fonts/Inter-{Regular,SemiBold}.ttf
+ *   Google Fonts -> app/fonts/{Inter-Regular,Inter-SemiBold,Marcellus-Regular}.ttf
  *       next/font hands Satori nothing it can use: ImageResponse needs real
- *       font buffers. Maglite already lives in app/fonts as a local file;
- *       Inter has to be fetched once and committed next to it.
+ *       font buffers, so each face is fetched once and committed here.
  *
  * The generated files are committed. This is not part of `next build` — a
  * network fetch in the build path would fail deploys for no good reason.

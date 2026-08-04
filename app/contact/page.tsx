@@ -13,7 +13,7 @@ import { pageOpenGraph } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Book a Free Demo",
   description:
-    "Book a free 30-minute demo with Icarus.Automation — Tagalog or English, no obligation. Automation, custom systems, IoT, and POS & inventory for Philippine businesses.",
+    "Book a free 30-minute demo with Icarus.Automation in Tagalog or English, no obligation. Automation, custom systems, IoT, and POS & inventory for Philippine businesses.",
   alternates: { canonical: "/contact" },
   openGraph: pageOpenGraph({
     title: "Thirty minutes. No obligation.",

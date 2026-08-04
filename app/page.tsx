@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     // the card image already carries the logo.
     title: "Automation that works as hard as you do",
     description:
-      "And it never clocks out. Automation, custom systems and IoT for Philippine businesses — enterprise capability, without the enterprise price. Free demo, no obligation.",
+      "And it never clocks out. Automation, custom systems and IoT for Philippine businesses: enterprise capability, without the enterprise price. Free demo, no obligation.",
     url: "/",
   }),
 };

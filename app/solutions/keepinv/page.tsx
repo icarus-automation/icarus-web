@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   // Leads with the product name and the two terms buyers actually search for.
   title: "Keep Inv: RFID Inventory & POS System",
   description:
-    "Affordable inventory management with POS for Philippine businesses. Audit thousands of assets in seconds with RFID. From ₱1,299 lifetime — one payment, no subscription.",
+    "Affordable inventory management with POS for Philippine businesses. Audit thousands of assets in seconds with RFID. From ₱1,299 lifetime: one payment, no subscription.",
   alternates: { canonical: "/solutions/keepinv" },
   openGraph: pageOpenGraph({
     title: "Audit a warehouse in seconds",

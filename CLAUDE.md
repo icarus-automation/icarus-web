@@ -8,16 +8,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Typography
 
-Locked decision: **Maglite** (display, local file in `app/fonts/`) + **Inter** (body, Google
-Fonts, unchanged). Replaces Marcellus. Not yet applied — read `docs/typography.md` before
-touching fonts.
+Locked decision: **Marcellus** (display) + **Inter** (body) + **Geist Mono** (prices and
+technical data). This is settled — the fonts do not change. Alternatives were evaluated
+and rejected; do not reopen the question or propose a replacement display face.
 
-Standing rules once live:
+Standing rules:
 
-- **Maglite is display only, one weight.** Never pair `font-display` with `font-bold` /
-  `font-semibold`, and never use it for body, buttons, or labels.
-- **Maglite has no `₱`.** Don't put a peso sign in a `font-display` element.
-- Sonar Sans was rejected. `app/fonts/Sonar-Regular.otf` is unused.
+- **Marcellus is display only, one weight (400).** Never pair `font-display` with
+  `font-bold` / `font-semibold`, and never use it for body, buttons, or labels.
+- **The display face has no `₱`.** Peso figures go in Inter or Geist Mono, never in a
+  `font-display` element.
 
 ## Adding a "Trusted by" client logo
 
@@ -49,9 +49,8 @@ Social cards are generated, not designed by hand:
   Next renders them at build time, so they cost nothing at request time.
 - Headline lines are authored breaks, not wrapped. Keep lines under ~18 characters;
   past that `lib/og.tsx` steps the type size down so it can't collide with the emblem.
-- **Cards are set in Marcellus, not Maglite** — they match what the site renders today.
-  The Maglite decision in *Typography* above still stands for the site itself; it just
-  hasn't been applied, and the cards are not waiting on it.
+- **Cards are set in Marcellus**, matching what the site renders, so a click from
+  Facebook lands on the same display face it promised.
 - The display face has no `₱`. Prices go in `sub`, which is Inter.
 - The logo is `public/assets/brand-logo-white.png` — a finished lockup, wordmark and
   mark together, so nothing is set in type beside it. It is white on transparent and

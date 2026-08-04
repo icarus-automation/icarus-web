@@ -47,14 +47,10 @@ the others.
 
 ### Typography note
 
-The cards are set in **Marcellus**, matching what the site renders today, so a click
-from Facebook lands on the same display face it promised.
-
-`docs/typography.md` still records **Maglite** as the locked decision for the site, and
-that migration has not been applied. If it ever is, switch the cards over with it — the
-font is loaded in `lib/og.tsx` from `app/fonts/`, and `headlineSize()` will need
-recalibrating, since Maglite runs about 6% narrower per em than Marcellus and its
-buckets would then be sizing text smaller than it needs to be.
+The cards are set in **Marcellus**, matching what the site renders, so a click from
+Facebook lands on the same display face it promised. The font is loaded in `lib/og.tsx`
+from `app/fonts/`; `headlineSize()`'s buckets are calibrated against Marcellus metrics,
+so any display-face change would need them re-measured.
 
 ---
 

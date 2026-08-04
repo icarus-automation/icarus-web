@@ -24,10 +24,12 @@ export const ogCards = {
     sub: "And it never clocks out. Enterprise-grade automation, systems and IoT, without the enterprise price.",
   },
 
+  // Matches the page's own h1, so a click from Facebook lands on the line it
+  // was promised.
   solutions: {
     kicker: "Solutions",
-    lines: ["Real software,", { text: "already shipped.", accent: true }],
-    sub: "Products and systems live in the market for Philippine businesses — the problem, the build, the price.",
+    lines: ["Systems that run", { text: "real businesses.", accent: true }],
+    sub: "Keep Inv for inventory and POS, Lease Linq for property operations, custom builds for everything else.",
     cta: "See our solutions",
   },
 
@@ -37,7 +39,7 @@ export const ogCards = {
   leaselinq: {
     kicker: "Lease Linq · Real-Estate Operations",
     lines: ["Property run on", { text: "spreadsheets?", accent: true }],
-    sub: "Units, tenants, leases, parking and revenue in one system. In development — book an early demo.",
+    sub: "Units, tenants, leases, parking and revenue in one system. In development, so book an early demo.",
   },
 
   keepinv: {
@@ -57,7 +59,7 @@ export const ogCards = {
   faq: {
     kicker: "Frequently asked",
     lines: ["Straight answers,", { text: "no vague “soon.”", accent: true }],
-    sub: "Cost, timelines, hardware, where we work, and what happens after launch.",
+    sub: "Timelines, payment terms, hardware, and what happens the day you need something changed.",
     cta: "Read the FAQ",
   },
 

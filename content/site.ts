@@ -76,7 +76,7 @@ export const processSteps = [
     title: "Discover",
     headline: "Find the updraft",
     image: "/assets/icarus-step/icarus-1.png",
-    alt: "Daedalus fitting Icarus with hand-built wings — the blueprint drawn before the flight",
+    alt: "Daedalus fitting Icarus with hand-built wings, the blueprint drawn before the flight",
     description:
       "A free demo and consultation. We map the repetitive work, bottlenecks, and systems slowing you down.",
   },
@@ -113,31 +113,35 @@ export const processSteps = [
 // and run `npm run logos`, not the output. See scripts/normalize-logos.mjs.
 export { clients } from "./clients.generated";
 
+// Ordered the way the questions actually come up once someone has decided they
+// want this: when, how do I pay, what happens later, do you bring the kit, and
+// can we cope. No "how much does it cost" entry — a real number needs the scope
+// from the demo, and the tiered prices that do exist live on the Keep Inv page.
 export const faqs = [
-  {
-    question: "How much does it cost?",
-    answer:
-      "It depends on what you need — but we build for real budgets, not enterprise ones. Keep Inv, our ready-made POS and inventory app, is ₱1,299 for lifetime access. Custom work is priced around the manual tasks it takes off your plate, and every free demo ends with a clear quote and no obligation.",
-  },
   {
     question: "How soon can it go live?",
     answer:
-      "Simple automations can be up and running in a few days. Bigger custom systems usually take a few weeks, depending on how much is involved. We’ll set a realistic timeline together on the first call — no vague “soon.”",
+      "Simple automations are usually running in 3 to 7 days. Bigger custom systems take a few weeks, depending on how many parts have to talk to each other. We set the timeline with you on the first call and give you a real date, not a vague “soon.”",
+  },
+  {
+    question: "How does payment work?",
+    answer:
+      "Usually 50% to start and 50% on delivery. You can pay through GCash, PayMaya, or bank transfer, whichever is easiest on your end. You get the full quote before any work begins, so nothing arrives as a surprise later.",
+  },
+  {
+    question: "What if I need changes after launch?",
+    answer:
+      "If it’s a bug, we fix it. No fee, no limit on revisions, that one is on us. For everything else we offer a maintenance agreement that covers updates, new feature requests, and keeping an eye on things as you grow. Without an agreement, a change request gets quoted on its own, starting at around ₱700 depending on how involved it is.",
   },
   {
     question: "Do you supply the hardware too?",
     answer:
-      "Yes. Receipt and label printers, barcode scanners, handheld RFID readers — we source the right kit for your budget and set it all up so it works from day one.",
+      "Yes. Receipt and label printers, barcode scanners, handheld RFID readers. We source the right kit for your budget, install it, and make sure it works from day one so you are not chasing a second supplier.",
   },
   {
-    question: "Where do you work?",
+    question: "We’re not technical. Is that a problem?",
     answer:
-      "We’re based in the Philippines and take on businesses anywhere in the country. For hardware setups we come on-site; everything else we handle remotely, so distance is rarely a problem.",
-  },
-  {
-    question: "What happens after launch?",
-    answer:
-      "We stick around. Monitoring, fixes, small tweaks, and new requests as you grow — support isn’t a separate contract you have to chase, it’s just part of how we work.",
+      "Not at all, and most of the businesses we work with are not either. We handle the setup, move your existing records over, install the hardware on-site, and train your staff until they can run it without us. You tell us how the business works. The technical side is our job.",
   },
 ] as const;
 

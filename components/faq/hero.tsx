@@ -19,8 +19,9 @@ export function FaqHero() {
             The questions we hear most
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-pretty text-ink-mid">
-            The things business owners ask us first — cost, timelines, hardware, and
-            what happens once you’re up and running. If yours isn’t here, just ask.
+            The things business owners ask us first: how soon it goes live, how
+            payment works, and what happens once you’re up and running. If yours
+            isn’t here, just ask.
           </p>
           <p className="mt-6">
             <Link

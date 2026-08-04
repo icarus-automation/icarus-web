@@ -9,14 +9,14 @@ import { breadcrumbs, faqPageSchema } from "@/lib/schema";
 import { pageOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "FAQ — Cost, Timelines & Support",
+  title: "FAQ: Timelines, Payment & Support",
   description:
-    "Answers to what Philippine business owners ask us first: how much it costs, how soon it goes live, whether we supply hardware, where we work, and support after launch.",
+    "Answers to what Philippine business owners ask us first: how soon it goes live, how payment works, what happens when you need changes, whether we supply the hardware, and what it takes on your side.",
   alternates: { canonical: "/faq" },
   openGraph: pageOpenGraph({
     title: "Straight answers, no vague “soon”",
     description:
-      "Cost, timelines, hardware, where we work, and what happens after launch.",
+      "Timelines, payment terms, changes after launch, hardware, and what it takes on your side.",
     url: "/faq",
   }),
 };
@@ -34,7 +34,7 @@ export default function FaqPage() {
       </section>
       <CtaBand
         title="Still have a question?"
-        subtitle="Book a free demo and ask us anything. We'll map out what to automate or build for you and send a clear quote — no obligation."
+        subtitle="Book a free demo and ask us anything. We'll map out what to automate or build for you, then send a clear quote with no obligation."
       />
     </>
   );
